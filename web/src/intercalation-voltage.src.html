@@ -276,7 +276,7 @@ footer { font-size: .78rem; color: var(--muted); margin-top: 18px; max-width: 10
     });
     $("nb").innerHTML = rows;
     var vs = res.neighbours.index.map(function (i) { return LI[i].v; });
-    $("nb-note").textContent = "Their voltages span " + f2(Math.min.apply(null, vs)) + "–" + f2(Math.max.apply(null, vs)) + " V. A tree model can only return combinations of training voltages, never a value outside " + f2(M.train_v_range[0]) + "–" + f2(M.train_v_range[1]) + " V.";
+    $("nb-note").textContent = "Their voltages span " + f2(Math.min.apply(null, vs)) + "–" + f2(Math.max.apply(null, vs)) + " V. A tree model is flat outside its data: it does not follow a trend beyond the training voltages (" + f2(M.train_v_range[0]) + "–" + f2(M.train_v_range[1]) + " V).";
     var p1, p2;
     if (db) p1 = "The model gives <b>" + f2(res.voltage) + " V</b>; the database (a GGA+U calculation) gives " + f2(db.v) + " V, " + (res.voltage - db.v >= 0 ? "+" : "−") + f2(Math.abs(res.voltage - db.v)) + " V off" + (isLi ? ", on a reaction it was trained on." : ".");
     else p1 = "The model gives <b>" + f2(res.voltage) + " V</b>. This step is not in the database, so there is no computed value to compare with.";

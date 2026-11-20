@@ -37,8 +37,17 @@ and merging polymorphs. Every label is a GGA+U calculation, not a measurement.</
 <tr><td>Same, random split</td><td class="num">{N["mae_li_random"]}</td><td>similar hosts on both sides: optimistic</td></tr>
 <tr><td>Always the training mean</td><td class="num">{N["mae_li_dummy"]}</td><td>baseline</td></tr>
 <tr><td>Na, trained on Li only</td><td class="num">{N["mae_na"]}</td><td>all {N["n_na"]} Na reactions; mean error {N["bias_na"]} V</td></tr>
-<tr><td>Na, trained on every other ion</td><td class="num">{N["mae_others"]}</td><td>{N["n_others"]} reactions of Li, Mg, Ca, Zn, K, …, no Na</td></tr>
+<tr><td>Na, trained on every other ion</td><td class="num">{N["mae_others"]}</td><td>{N["n_others"]} reactions of Li, Mg, Ca, Zn, K, …; Na never the working ion</td></tr>
+<tr><td>One transition metal never seen</td><td class="num">{N["lto_mae"]}</td><td>each of {N["lto_n_el"]} metals left out of training in turn; {N["lto_group"]} V on the same reactions with the host system split</td></tr>
 </table>
+<p>On unseen Li host systems half of the predictions are within {N["err_median_li"]} V of the database, {N["err_05_li"]} within 0.5 V and
+{N["err_10_li"]} within 1 V.</p>
+<h2>Using it to find materials</h2>
+<p>Rank the reactions of unseen Li host systems by the model and keep the top {N["scr_top_share"]}: {N["scr_top_prec_li"]} of them
+reach at least {N["scr_target"]} V in the database, against {N["scr_base_li"]} of all candidates, but they hold only
+{N["scr_top_rec_li"]} of the reactions that do.
+The model is a first filter that spares most of the expensive checks; it is not a way to be sure of finding every good
+material, and the voltage is only one of the things a cathode needs.</p>
 <p>{N["pairs_n"]} hosts appear with both Li and Na. In the database the Na version is {N["pairs_data_abs"]} V lower on average;
 the Li-trained model puts it {N["pairs_pred_abs"]} V lower. Adding Na reactions to the training data helps
 ({N["lc_k0"]} V with none, {N["lc_k100"]} V with {lc["k"][-1]}, on held-out Na host systems); so do other ions without any Na

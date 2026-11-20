@@ -1,12 +1,18 @@
 // The page's JavaScript port against Python: voltage and distance of every case in results/web_check.json.
-// The model is read from the data block of the published page, so this tests what the browser runs.
+// Both the core script and the model are read from the published page, so this tests what the browser runs.
 // Usage: node tests/web_model.test.js
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 const ROOT = path.join(__dirname, "..");
-const core = require(path.join(ROOT, "web", "src", "core.js"));
 const page = fs.readFileSync(path.join(ROOT, "web", "intercalation-voltage.html"), "utf8");
+const script = [...page.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]).find((s) => s.includes("module.exports = api"));
+if (!script) { console.log("no core script in the page"); process.exit(1); }
+const sandbox = { module: { exports: {} }, Buffer: Buffer };
+vm.runInNewContext(script, sandbox);
+const core = sandbox.module.exports;
+if (typeof core.run !== "function") { console.log("the page's core script exports no run()"); process.exit(1); }
 const m = /window\.VOLTAGE_DATA = (\{.*?\});<\/script>/s.exec(page);
 if (!m) { console.log("no data block in the page"); process.exit(1); }
 const M = JSON.parse(m[1]).model;   // the page writes "</" as the JSON escape "<\/", which JSON.parse reads back

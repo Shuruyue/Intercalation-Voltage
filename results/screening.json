@@ -1,0 +1,154 @@
+{
+ "target_V": 4.0,
+ "top_share": 0.1,
+ "li_unseen_hosts": {
+  "n": 2043,
+  "n_target": 568,
+  "base_rate": 0.27802251590797844,
+  "top": {
+   "n_selected": 204,
+   "precision": 0.9117647058823529,
+   "recall": 0.3274647887323944,
+   "enrichment": 3.2794635459817734
+  },
+  "predicted_above": {
+   "n_selected": 439,
+   "precision": 0.7995444191343963,
+   "recall": 0.6179577464788732,
+   "enrichment": 2.875826141358401
+  }
+ },
+ "na_li_model": {
+  "n": 327,
+  "n_target": 74,
+  "base_rate": 0.22629969418960244,
+  "top": {
+   "n_selected": 33,
+   "precision": 0.7878787878787878,
+   "recall": 0.35135135135135137,
+   "enrichment": 3.4815724815724813
+  },
+  "predicted_above": {
+   "n_selected": 30,
+   "precision": 0.7666666666666667,
+   "recall": 0.3108108108108108,
+   "enrichment": 3.387837837837838
+  }
+ },
+ "errors": {
+  "li_unseen_hosts": {
+   "median": 0.3175447608297701,
+   "within_0.3": 0.48409202153695546,
+   "within_0.5": 0.6715614292706804,
+   "within_1.0": 0.9055310817425355
+  },
+  "na_li_model": {
+   "median": 0.4601838799752225,
+   "within_0.3": 0.3425076452599388,
+   "within_0.5": 0.5382262996941896,
+   "within_1.0": 0.8348623853211009
+  }
+ },
+ "leave_element_out": {
+  "min_reactions": 30,
+  "elements": [
+   {
+    "element": "Mn",
+    "n": 556,
+    "mae_left_out": 0.3767912774175109,
+    "mae_group_split": 0.3220442913492741,
+    "frac_err_gt_1V": 0.05575539568345324
+   },
+   {
+    "element": "Fe",
+    "n": 433,
+    "mae_left_out": 0.5562014879398618,
+    "mae_group_split": 0.472487900416378,
+    "frac_err_gt_1V": 0.16628175519630484
+   },
+   {
+    "element": "V",
+    "n": 403,
+    "mae_left_out": 0.5539095253390609,
+    "mae_group_split": 0.3873969360272457,
+    "frac_err_gt_1V": 0.1588089330024814
+   },
+   {
+    "element": "Co",
+    "n": 327,
+    "mae_left_out": 0.34016345594586145,
+    "mae_group_split": 0.29918914927178364,
+    "frac_err_gt_1V": 0.05198776758409786
+   },
+   {
+    "element": "Cr",
+    "n": 297,
+    "mae_left_out": 0.48348686644882766,
+    "mae_group_split": 0.4248654508495609,
+    "frac_err_gt_1V": 0.11447811447811448
+   },
+   {
+    "element": "Ni",
+    "n": 234,
+    "mae_left_out": 0.39353823744031324,
+    "mae_group_split": 0.33161771760824416,
+    "frac_err_gt_1V": 0.07264957264957266
+   },
+   {
+    "element": "Ti",
+    "n": 210,
+    "mae_left_out": 0.6132661438182355,
+    "mae_group_split": 0.45865275411296547,
+    "frac_err_gt_1V": 0.21904761904761905
+   },
+   {
+    "element": "Cu",
+    "n": 136,
+    "mae_left_out": 0.41756382120580693,
+    "mae_group_split": 0.3890833797477998,
+    "frac_err_gt_1V": 0.10294117647058823
+   },
+   {
+    "element": "Nb",
+    "n": 76,
+    "mae_left_out": 0.5780384959371347,
+    "mae_group_split": 0.554048413926235,
+    "frac_err_gt_1V": 0.17105263157894737
+   },
+   {
+    "element": "W",
+    "n": 45,
+    "mae_left_out": 0.4352561396541285,
+    "mae_group_split": 0.42600162115294393,
+    "frac_err_gt_1V": 0.06666666666666667
+   },
+   {
+    "element": "Mo",
+    "n": 36,
+    "mae_left_out": 0.5648695722927779,
+    "mae_group_split": 0.4276199309843609,
+    "frac_err_gt_1V": 0.1111111111111111
+   }
+  ],
+  "n_pairs": 2753,
+  "mae_left_out": 0.46854379102375104,
+  "mae_group_split": 0.387681720544543
+ },
+ "li_model_range": {
+  "label_min": 0.0429990550000005,
+  "label_max": 5.977201855000002,
+  "pred_min": -0.10180939155709234,
+  "pred_max": 5.7563359188081344,
+  "pred_min_reaction": [
+   "Ti3AlC2",
+   "Ti3C2",
+   "Al"
+  ],
+  "pred_max_reaction": [
+   "ZnNiF4",
+   "NiF4",
+   "Zn"
+  ],
+  "n_outside_label_range": 1
+ }
+}

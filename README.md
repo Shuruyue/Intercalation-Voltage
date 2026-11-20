@@ -12,7 +12,7 @@
 
 ## Electrode Voltage from Physics and from Data
 
-The voltage of an insertion electrode is set by how strongly the solid holds the working ion: averaged over a reaction step, it is a difference of total energies, which density-functional theory (DFT) computes and which a model can learn from a database of such calculations. This project does both for the same quantity and asks where each can be trusted. It computes the voltage of LiCoO<sub>2</sub> with DFT (GPAW) and with the machine-learned potential CHGNet, uses CHGNet molecular dynamics for lithium diffusion in α-Li<sub>3</sub>N, and trains gradient boosting on the lithium electrodes of the Materials Project, then tests it on lithium host systems it has not seen and on sodium, a working ion it has never seen.
+The voltage of an insertion electrode is set by how strongly the solid holds the working ion: averaged over a reaction step, it is a difference of total energies, which density-functional theory (DFT) computes and which a model can learn from a database of such calculations. This project does both for the same quantity and asks where each can be trusted. It computes the voltage of LiCoO<sub>2</sub> with DFT (GPAW) and with the machine-learned potential CHGNet, uses CHGNet molecular dynamics for lithium diffusion in α-Li<sub>3</sub>N, and trains gradient boosting on the lithium electrodes of the Materials Project, then tests it on lithium host systems it has not seen and on sodium, a working ion it has never seen. Finally it asks what this is worth for finding a material: how well a ranking by the model picks out high-voltage electrodes, and how the model fares on a transition metal it has never seen.
 
 Every number below is computed by `intercalation_voltage/summary.py` from `results/*.json` and the outputs in `calc/`, and `scripts/validate.py` checks that this README still quotes what the results give. Voltages are average voltages against the metal of the working ion over a whole reaction step.
 
@@ -23,7 +23,7 @@ Every number below is computed by `intercalation_voltage/summary.py` from `resul
 - **DFT** — GPAW (projector augmented waves, plane waves) with PBE and PBE+U for LiCoO<sub>2</sub>, CoO<sub>2</sub> in O1 and O3 stacking, and lithium metal at experimental lattices; checked for cutoff and k-point convergence and against published values.
 - **Machine-learned potential** — CHGNet voltages of LiCoO<sub>2</sub> and NaCoO<sub>2</sub> with free and with fixed cells; 12 molecular-dynamics runs of α-Li<sub>3</sub>N (106 atoms, 25 ps each) at 500–800 K, giving D(T) and an activation energy.
 - **Data** — the Materials Project insertion-electrode snapshot of 2019-12-03, cleaned to 3,430 reaction steps of 10 working ions; 266 Magpie composition features per reaction.
-- **Machine learning** — gradient boosting tested on held-out host systems against a random split, from lithium to sodium, from all other ions to sodium, on 127 matched hosts, and with a learning curve that has a training-set-size control.
+- **Machine learning** — gradient boosting tested on held-out host systems against a random split, from lithium to sodium, from all other ions to sodium, on 127 matched hosts, with a learning curve that has a training-set-size control, with one transition metal held out at a time, and as the first filter of a screen for high-voltage electrodes.
 - **Warning light** — the distance of a reaction to its nearest training reactions, with a threshold set on unseen lithium hosts; the model, the features and the light run unchanged in the browser.
 - **Validation** — automated checks (see [VALIDATION.md](VALIDATION.md)), unit tests, and the page's JavaScript checked against Python case by case, run in CI on every push.
 
@@ -71,9 +71,9 @@ Run from the repository root. Times are for one desktop (Intel Core i5-13400, NV
 | Step | Command | Time |
 |---|---|---|
 | Cleaning and features | `python scripts/prep_data.py` | < 1 min |
-| Machine-learning experiments and the distance check | `python scripts/run_ml.py` | ~20 min, one core |
+| Machine-learning experiments, the distance check and the screening | `python scripts/run_ml.py` | ~25 min, one core |
 | Model and check cases for the page, the page | `python scripts/export_web_model.py`, `python scripts/build_web_page.py` | ~1 min |
-| DFT, 11 runs (Linux or WSL, `environment-dft.yml`) | in `calc/dft/output`: `python ../dft_voltage.py <tag> <U> [650 2]` | 0.1–8 min each with 4 threads |
+| DFT, 11 runs (Linux or WSL, `environment-dft.yml`) | in `calc/dft/output`: `python ../dft_voltage.py <tag> <U> [650 2]` | 0.04–5.2 min each with 4 threads |
 | CHGNet voltages | `python calc/chgnet/chgnet_voltage.py` | ~3 min on the CPU |
 | CHGNet molecular dynamics, one 25 ps run | `python calc/md/md_li3n.py <T> --seed <n> --out calc/md/runs/<T>K_seed<n>` | ~20 min on the GPU |
 | Diffusion coefficients and Arrhenius fit | `python scripts/analyze_md.py` | ~1 min |
@@ -91,6 +91,7 @@ Intercalation-Voltage/
 │   ├── data.py            # cleaning of the Materials Project snapshot
 │   ├── learning.py        # gradient-boosting experiments
 │   ├── distance.py        # the warning light: distance to the training data
+│   ├── screening.py       # the model as a first filter; one transition metal held out
 │   ├── web_model.py       # the model and check cases for the page
 │   ├── structures.py      # starting structures (pymatgen)
 │   ├── voltage.py         # voltage from total energies; DFT and CHGNet results
@@ -139,11 +140,13 @@ with $`U_\mathrm{eff}`$(Co) = 3.32 eV, the value the Materials Project fitted to
 
 A reaction is described by its discharged and charged compositions. For each, the Magpie statistics (Ward et al. 2016) of 22 element properties are computed over the elements weighted by their atomic fractions $w_i$: minimum, maximum, range, mean $`\bar p = \sum_i w_i p_i`$, mean absolute deviation $`\sum_i w_i |p_i - \bar p|`$ and the value of the most abundant element. Two terms describe the working ion A: the amount inserted per atom of the discharged composition, $`(n_\mathrm{A}^\mathrm{dis} - n_\mathrm{A}^\mathrm{chg}\,h^\mathrm{dis}/h^\mathrm{chg})/N^\mathrm{dis}`$ with $h$ the number of host atoms and $N$ all atoms, and the atomic fraction of A in the discharged composition. 132 + 132 + 2 = 266 features.
 
-Gradient boosting (Friedman 2001) adds shallow regression trees one at a time, each fitted to the residuals of the sum so far, $`F_m = F_{m-1} + \nu\,h_m`$ with learning rate $\nu$. Each tree predicts the mean label of a region of feature space, so the model can never predict beyond the range of its training labels: trained on $y = 2x$ for $0 \le x \le 1$, it predicts 2.0 at $x = 2$.
+Gradient boosting (Friedman 2001) adds shallow regression trees one at a time, each fitted to the residuals of the sum so far, $`F_m = F_{m-1} + \nu\,h_m`$ with learning rate $\nu$. Each tree is constant over each region of feature space it cuts out, so beyond the training data the model stops following any trend: trained on $y = 2x$ for $0 \le x \le 1$, it predicts 2.0 at $x = 2$. The leaves hold averages of residuals, not of labels, so the sum is not strictly confined to the range of the labels: over the snapshot the lithium model runs from −0.10 V (Ti<sub>3</sub>AlC<sub>2</sub> → Ti<sub>3</sub>C<sub>2</sub> with Al as the working ion) to 5.76 V, against labels of 0.04–5.98 V.
 
 ### Validation splits and the distance to the training data
 
 A random split puts reactions of the same host system on both sides; the group split holds out whole host systems (the elements other than the working ion, e.g. Co–O), so every test reaction has a host the model has not seen (Meredig et al. 2018). The distance of a reaction is the mean Euclidean distance to its $k = 5$ nearest lithium training reactions after each feature is standardized with the mean and standard deviation of the lithium data; the threshold is the 95th percentile of the same distance for lithium reactions of held-out host systems, measured against their own training folds.
+
+A stricter split holds out every reaction that contains one transition metal, so the test reactions bring an element the model has never seen. A screen ranks the candidates by their predicted voltage and keeps the best: its precision is the share of the kept candidates that reach the target voltage, its recall the share of all candidates reaching it that are kept, and its enrichment the precision divided by the share in the whole pool.
 
 ### Diffusion from molecular dynamics
 
@@ -207,15 +210,15 @@ Of the 5,133 reaction steps of the snapshot, 4,965 have 0 < V ≤ 6 V, 4,297 of 
 | Lithium, always the training mean | 0.82 |
 | Sodium, trained on lithium only | 0.58 (R² = 0.60; mean error −0.16 V) |
 | Sodium, always the lithium training mean | 0.96 |
-| Sodium, trained on every other ion (3,103 reactions, no sodium) | 0.45 |
+| Sodium, trained on every other ion (3,103 reactions, sodium never the working ion) | 0.45 |
 
-The feature the lithium model relies on most is the mean covalent radius of the discharged composition (`discharged: mean CovalentRadius`). Errors above 1 V rise from 9 % of the unseen lithium hosts to 17 % of the sodium reactions. **The lithium-trained model learns the wrong sodium shift.** For the 127 hosts that appear with both ions, sodium is 0.21 V lower in the database on average (lower for 71 % of them), but the model puts it 0.53 V lower; measured from the model's own lithium predictions instead of the database values the shift is −0.50 V, and −0.42 V with out-of-fold lithium predictions. Within the lithium data the working ion never changes, so the model has no way to learn what changing it does.
+The feature the lithium model relies on most is the mean covalent radius of the discharged composition (`discharged: mean CovalentRadius`). Errors above 1 V rise from 9 % of the unseen lithium hosts to 17 % of the sodium reactions. For unseen lithium hosts half of the predictions are within 0.32 V of the database, 48 % within 0.3 V, 67 % within 0.5 V and 91 % within 1 V; for sodium the median error is 0.46 V, with 34 %, 54 % and 83 % within the same limits. **The lithium-trained model learns the wrong sodium shift.** For the 127 hosts that appear with both ions, sodium is 0.21 V lower in the database on average (lower for 71 % of them), but the model puts it 0.53 V lower; measured from the model's own lithium predictions instead of the database values the shift is −0.50 V, and −0.42 V with out-of-fold lithium predictions. Within the lithium data the working ion never changes, so the model has no way to learn what changing it does.
 
 ![Learning curve on held-out sodium hosts](docs/figures/learning_curve.png)
 
 *Mean absolute error on held-out sodium host systems (40 % of them, 10 random splits; mean ± standard deviation) when k sodium reactions from the other sodium hosts are added to the lithium training data, and on the same held-out sets for a model trained on all other ions and for one trained on a random subset of them as large as the lithium set.*
 
-**Other ions help, and not only because there are more of them.** On held-out sodium hosts the error falls from 0.58 V to 0.48 V when 100 sodium reactions are added to the lithium data. A model with no sodium at all, trained on all other ions, reaches 0.44 V; cut to the 2,043 reactions of the lithium set, it still reaches 0.46 V.
+**Other ions help, and not only because there are more of them.** On held-out sodium hosts the error falls from 0.58 V to 0.48 V when 100 sodium reactions are added to the lithium data. A model trained on all other ions, none of them with sodium as the working ion, reaches 0.44 V; cut to the 2,043 reactions of the lithium set, it still reaches 0.46 V.
 
 ### The warning light
 
@@ -224,6 +227,16 @@ The feature the lithium model relies on most is the mean covalent radius of the 
 *(a) Distance of each reaction to its 5 nearest lithium training reactions: lithium reactions of held-out hosts (to their own training folds) and sodium reactions (to all lithium reactions). Dashed: the threshold. (b) Mean absolute error in six distance bins of equal count, for lithium and sodium pooled and for lithium alone; red numbers: the share of sodium in each bin.*
 
 92 % of the sodium reactions lie beyond the threshold that 5 % of the unseen lithium hosts exceed by construction. Among unseen lithium hosts, those beyond it have a mean error of 0.67 V against 0.42 V (Spearman ρ between distance and error +0.18). Within sodium the distance does not rank the errors (ρ = −0.17; 0.57 V beyond the threshold, 0.61 V within it): the light tells that a composition is new to the model, not how wrong the number is, and the rise of the pooled error with distance in (b) comes partly from the growing share of sodium.
+
+### Using the model to find materials
+
+![Screening by predicted voltage, and the error with one transition metal held out](docs/figures/screening.png)
+
+*(a) Share of the reactions with a database voltage of at least 4.0 V that a screen finds, against the share of candidates it checks in the order of the model's prediction: lithium reactions of host systems held out of training (out-of-fold predictions of the group split) and sodium reactions with the lithium-trained model; dotted: a random order. (b) Mean absolute error on the lithium reactions that contain each transition metal, with their host system held out (open) and with every reaction of that metal held out of training (filled); in brackets: the number of reactions.*
+
+A search for a new electrode is a funnel: many candidate compositions, a fast filter, slower and more reliable checks (CHGNet, then DFT) on what survives, and experiments last. Used as the first filter on the 2,043 lithium reactions of unseen host systems, the model does that job and no more. 28 % of the candidates (568) reach 4.0 V in the database; of the 204 it ranks highest (the top 10 %), 91 % do, 3.3 times the base rate, but they hold only 33 % of all such reactions. Keeping every candidate predicted at 4.0 V or more finds 62 % of them at a precision of 80 %. On sodium with the lithium-trained model, 79 % of the top 10 % reach 4.0 V (base rate 23 %) and hold 35 % of such reactions. **The ranking spares most of the slow checks; it does not find every good material,** and the voltage is only one requirement next to stability, capacity, ion transport and cycle life, which this model does not predict.
+
+**A host system the model has not seen is not yet a chemistry it has not seen.** The group split holds out a chemical system such as Co–O, while related systems such as Co–Ni–O stay in training. Holding out every reaction that contains one transition metal, for each of the 11 metals that appear in at least 30 lithium reactions in turn, raises the error on those reactions from 0.39 V to 0.47 V (2,753 reaction–metal pairs; a reaction with two of the metals counts once for each). The largest errors are for Ti 0.61 V, Nb 0.58 V, Mo 0.56 V.
 
 ### Lithium diffusion in α-Li<sub>3</sub>N
 
@@ -252,14 +265,15 @@ On one thread of the same desktop, one GPAW energy of LiCoO<sub>2</sub> takes 18
 | DFT | 8 | all relaxations converged; 650 eV and denser k points change V by ≤ 20 mV; relaxed Co–O and Li–O plane spacings within 0.05 Å of the crystal structure; low-spin CoO<sub>2</sub>; PBE and PBE+U within 0.05 V of the literature; an earlier run from a different start within 20 mV |
 | CHGNet | 1 (+ 2 observations) | LiCoO<sub>2</sub> reaches the same structure from either start; free against fixed cells and the two NaCoO<sub>2</sub> minima reported |
 | MD | 3 (+ 1 observations) | thermostat holds every run within 5 K; the re-analysis reproduces the first set's D values; D rises with T |
-| ML | 5 | group split beats the mean; random split is the optimistic one; 5 % of unseen Li hosts are red by construction; one Li partner per matched Na reaction; the page's check cases recomputed |
+| ML | 8 | group split beats the mean; random split is the optimistic one; 5 % of unseen Li hosts are red by construction; one Li partner per matched Na reaction; the Na–Li shift has the sign stated; the ranked screen beats the pool; a metal left out is no easier than a host left out; the page's check cases recomputed |
 | README | 1 | every number of `summary.compute` appears verbatim in this README |
 
-Unit tests (`pytest`) check the pieces separately: the starting structures (Co–O and Li–O bond lengths of LiCoO<sub>2</sub>), the voltage formula, the ion terms and host keys of the features against hand-computed values and the stored feature matrix, the MSD analysis on trajectories with known answers, and the page's data against the results. A Node test runs the page's JavaScript on 313 reactions and compares voltages and distances with Python.
+Unit tests (`pytest`) check the pieces separately: the starting structures (Co–O and Li–O bond lengths of LiCoO<sub>2</sub>), the voltage formula, the ion terms and host keys of the features against hand-computed values and the stored feature matrix, the MSD analysis on trajectories with known answers, the screening statistics on rankings with known answers, and the page's data and inlined scripts against the results and their sources. A Node test runs the script of the published page on 313 reactions and compares voltages and distances with Python.
 
 ## Limitations
 
 - The machine-learning labels are GGA+U calculations, not measurements, and the model cannot be more accurate than they are; for LiCoO<sub>2</sub> our own PBE+U is 3.879 V against about 4.1 V measured.
+- The group split holds out chemical systems, not elements: on a transition metal the model has never seen, its error is 0.47 V instead of 0.39 V on the same reactions. The screen ranks electrodes already in the database, all computed and close to the convex hull; a real search also has to predict whether a candidate is stable at all.
 - Composition features cannot tell polymorphs apart, so polymorphs of one reaction were merged by their median voltage. The 2019 snapshot is fixed so that every number can be reproduced; the current database has more, recomputed entries.
 - The DFT lattices are experimental and fixed; only the atomic positions are relaxed. The O3 CoO<sub>2</sub> is the LiCoO<sub>2</sub> lattice with lithium removed, so its 0.06 eV advantage over O1 mixes stacking with lattice strain.
 - The MD cell has 106 atoms and two vacancies, and each run lasts 25 ps; the Berendsen thermostat does not sample the canonical ensemble exactly. D at 300 K, 7.2 × 10⁻⁷ cm² s⁻¹ from the Arrhenius fit, is an extrapolation over 200 K.

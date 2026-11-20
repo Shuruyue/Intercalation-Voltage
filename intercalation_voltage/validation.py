@@ -229,7 +229,9 @@ def md_checks():
 
 def ml_checks():
     L, D = _json(paths.result("learning.json")), _json(paths.result("distance.json"))
+    S = _json(paths.result("screening.json"))
     P = pd.read_csv(paths.result("li_na_pairs.csv"))
+    LO = S["leave_element_out"]
     return [
         row(
             "ML",
@@ -262,6 +264,31 @@ def ml_checks():
             float(L["pairs"]["n"]),
             0,
             "results/li_na_pairs.csv against learning.json",
+        ),
+        row(
+            "ML",
+            "Na - Li shift of matched hosts negative in the database and in the model (the sign the README states)",
+            float(L["pairs"]["data_mean_vna_minus_vli"] < 0 and L["pairs"]["pred_na_minus_data_li"] < 0),
+            1,
+            0,
+            "learning.json; the README quotes both shifts as 'lower'; 1 = yes",
+        ),
+        row(
+            "ML",
+            f"screening: top {100 * S['top_share']:.0f} % by prediction richer in >= {S['target_V']:.1f} V reactions"
+            " than the pool, Li and Na",
+            float(S["li_unseen_hosts"]["top"]["enrichment"] > 1 and S["na_li_model"]["top"]["enrichment"] > 1),
+            1,
+            0,
+            "screening.json, out-of-fold predictions of the group split; 1 = yes",
+        ),
+        row(
+            "ML",
+            "one transition metal left out of training: error no lower than the group split on the same reactions",
+            float(LO["mae_left_out"] >= LO["mae_group_split"]),
+            1,
+            0,
+            f"screening.json, {len(LO['elements'])} metals with >= {LO['min_reactions']} Li reactions; 1 = yes",
         ),
         row(
             "ML",

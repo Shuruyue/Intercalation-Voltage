@@ -4,6 +4,7 @@ compute() returns {name: formatted string}; scripts/validate.py checks that each
 """
 
 import json
+import re
 
 import numpy as np
 
@@ -36,6 +37,11 @@ def sci(x, digits=2):
 
 def signed(x):
     return f"{'+' if x >= 0 else '−'}{abs(x):.2f}"
+
+
+def html_formula(f):
+    """'Ti3AlC2' -> 'Ti<sub>3</sub>AlC<sub>2</sub>'."""
+    return re.sub(r"(\d+(?:\.\d+)?)", r"<sub>\1</sub>", f)
 
 
 def dft_geometry():
@@ -97,12 +103,50 @@ def compute():
     N["mae_li_flagged"], N["mae_li_noflag"] = f2(D["mae_li_flagged"]), f2(D["mae_li_not_flagged"])
     N["mae_na_flagged"], N["mae_na_noflag"] = f2(D["mae_na_flagged"]), f2(D["mae_na_not_flagged"])
     N["rho_na"], N["rho_li"] = signed(D["spearman_dist_abs_err_na"]), signed(D["spearman_dist_abs_err_li"])
+    # screening, error shares, one transition metal left out, range of the Li model
+    S = _json("screening.json")
+    sl, sn = S["li_unseen_hosts"], S["na_li_model"]
+    N["scr_target"], N["scr_top_share"] = f"{S['target_V']:.1f}", pct(S["top_share"])
+    N["scr_n_li"], N["scr_n_top_li"], N["scr_n_target_li"] = (
+        f"{sl['n']:,}",
+        str(sl["top"]["n_selected"]),
+        str(sl["n_target"]),
+    )
+    N["scr_base_li"], N["scr_base_na"] = pct(sl["base_rate"]), pct(sn["base_rate"])
+    N["scr_top_prec_li"], N["scr_top_rec_li"] = pct(sl["top"]["precision"]), pct(sl["top"]["recall"])
+    N["scr_top_enrich_li"] = f"{sl['top']['enrichment']:.1f}"
+    N["scr_pred_prec_li"], N["scr_pred_rec_li"] = (
+        pct(sl["predicted_above"]["precision"]),
+        pct(sl["predicted_above"]["recall"]),
+    )
+    N["scr_top_prec_na"], N["scr_top_rec_na"] = pct(sn["top"]["precision"]), pct(sn["top"]["recall"])
+    E = S["errors"]
+    N["err_median_li"], N["err_median_na"] = f2(E["li_unseen_hosts"]["median"]), f2(E["na_li_model"]["median"])
+    for lvl, key in (("0.3", "03"), ("0.5", "05"), ("1.0", "10")):
+        N[f"err_{key}_li"] = pct(E["li_unseen_hosts"][f"within_{lvl}"])
+        N[f"err_{key}_na"] = pct(E["na_li_model"][f"within_{lvl}"])
+    LO = S["leave_element_out"]
+    N["lto_n_el"], N["lto_min_n"], N["lto_pairs"] = (
+        str(len(LO["elements"])),
+        str(LO["min_reactions"]),
+        f"{LO['n_pairs']:,}",
+    )
+    N["lto_mae"], N["lto_group"] = f2(LO["mae_left_out"]), f2(LO["mae_group_split"])
+    worst = sorted(LO["elements"], key=lambda r: -r["mae_left_out"])[:3]
+    N["lto_worst"] = ", ".join(f"{r['element']} {r['mae_left_out']:.2f} V" for r in worst)
+    R = S["li_model_range"]
+    N["gb_label_min"], N["gb_label_max"] = f2(R["label_min"]), f2(R["label_max"])
+    N["gb_pred_min"], N["gb_pred_max"] = signed(R["pred_min"]), f2(R["pred_max"])
+    dis, chg, ion = R["pred_min_reaction"]
+    N["gb_min_reaction"] = f"{html_formula(dis)} → {html_formula(chg)} with {ion} as the working ion"
     # DFT
     N["V_pbe"], N["V_pbeu"] = f"{V['PBE|O1|base']:.3f}", f"{V['PBE+U|O1|base']:.3f}"
     N["V_pbeu_o3"] = f"{V['PBE+U|O3|base']:.3f}"
     N["V_pbe_conv"], N["V_pbeu_conv"] = f"{V['PBE|O1|converged']:.3f}", f"{V['PBE+U|O1|converged']:.3f}"
     conv = max(abs(V["PBE|O1|converged"] - V["PBE|O1|base"]), abs(V["PBE+U|O1|converged"] - V["PBE+U|O1|base"]))
     N["conv_mV"] = f"{1000 * conv:.0f}"
+    minutes = [r["minutes"] for r in vt.load_dft().values()]
+    N["dft_minutes"] = f"{min(minutes):.2f}–{max(minutes):.1f} min"
     co_o, li_o = dft_geometry()
     N["co_o_plane"], N["li_o_plane"] = f2(co_o), f2(li_o)
     # CHGNet

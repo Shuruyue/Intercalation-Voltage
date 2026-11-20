@@ -163,7 +163,7 @@ def learning_curve():
         color=COLORS["others"],
         ls="--",
         lw=1.2,
-        label=f"all other ions, no Na ({_json('learning.json')['others_to_na']['n_train']:,} reactions)",
+        label=f"all other ions, Na never the ion ({_json('learning.json')['others_to_na']['n_train']:,} reactions)",
     )
     ax.axhline(
         LC["others_size_matched_mae_mean"],
@@ -201,6 +201,48 @@ def distance():
     b.legend(loc="upper left")
     panel(b, "b", "Error against distance")
     save(fig, "distance.png")
+
+
+def screening():
+    """(a) Gain curve of a screen ranked by the model; (b) error with one transition metal left out of training."""
+    S, A = _json("screening.json"), np.load(paths.result("screening_arrays.npz"))
+    fig, (a, b) = newfig(0.45, ncols=2)
+    for key, arr, label in (("li", "gain_li", "Li, unseen hosts"), ("na", "gain_na", "Na, Li-trained model")):
+        g = A[arr]
+        a.plot(np.arange(len(g)) / (len(g) - 1), g, color=COLORS[key], label=label)
+    a.plot([0, 1], [0, 1], color=GRAY, lw=0.8, ls=":", label="random order")
+    top = S["top_share"]
+    a.axvline(top, color=INK, ls="--", lw=0.8)
+    a.text(top + 0.02, 0.97, f"top {100 * top:.0f} %", va="top")
+    a.set(
+        xlim=(0, 1),
+        ylim=(0, 1.02),
+        xlabel="share of candidates checked, best first",
+        ylabel=f"share of $V \\geq$ {S['target_V']:.1f} V found",
+    )
+    a.legend(loc="lower right")
+    panel(a, "a", "Screening by predicted voltage")
+    rows = S["leave_element_out"]["elements"]
+    y = np.arange(len(rows))[::-1]
+    for yi, r in zip(y, rows, strict=True):
+        b.plot([r["mae_group_split"], r["mae_left_out"]], [yi, yi], color=LIGHT, lw=2, zorder=1)
+    b.scatter(
+        [r["mae_group_split"] for r in rows],
+        y,
+        s=18,
+        facecolor="white",
+        edgecolor=COLORS["li"],
+        zorder=2,
+        label="host held out",
+    )
+    b.scatter([r["mae_left_out"] for r in rows], y, s=18, color=COLORS["li"], zorder=3, label="metal held out")
+    b.set_yticks(y, [f"{r['element']} ({r['n']})" for r in rows])
+    b.tick_params(axis="y", which="both", left=False, right=False)
+    # an empty band below the metals holds the legend
+    b.set(xlabel="mean absolute error (V)", xlim=(0.2, 0.75), ylim=(-2.5, len(rows) - 0.4))
+    b.legend(loc="lower center", ncol=2, handletextpad=0.2, columnspacing=1.0, borderpad=0.3)
+    panel(b, "b", "A transition metal never seen")
+    save(fig, "screening.png")
 
 
 def diffusion():
@@ -249,4 +291,4 @@ def diffusion():
     save(fig, "li3n_diffusion.png")
 
 
-ALL = [li_to_na, licoo2_methods, learning_curve, distance, diffusion]
+ALL = [li_to_na, licoo2_methods, learning_curve, distance, screening, diffusion]

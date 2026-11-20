@@ -40,6 +40,15 @@ def test_data_block_cannot_close_its_script_tag(block):
     assert "<script" not in text[start:end]
 
 
+def test_page_inlines_the_current_sources(block):
+    # the Node test runs the core script of the page; this keeps that script equal to web/src/core.js
+    text, _ = block
+    assert (paths.WEB / "src" / "core.js").read_text(encoding="utf-8") in text
+    src = (paths.WEB / "src" / "intercalation-voltage.src.html").read_text(encoding="utf-8")
+    for part in src.replace("/*__DATA__*/", "/*__CORE__*/").split("/*__CORE__*/"):
+        assert part in text, "page out of date: run scripts/build_web_page.py"
+
+
 def test_page_never_writes_user_input_as_html():
     src = (paths.WEB / "src" / "intercalation-voltage.src.html").read_text(encoding="utf-8")
     # formulas typed by the user reach the DOM only through textContent or esc()
