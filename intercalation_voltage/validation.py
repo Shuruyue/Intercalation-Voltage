@@ -279,10 +279,11 @@ def _web_named_check():
 
     cases = [c for c in _json(paths.result("web_check.json")) if c["named"]][:4]
     m = ln.fit_li()
-    return max(
+    worst = max(
         abs(float(m.predict([ft.reaction_vector(c["discharged"], c["charged"], c["ion"])])[0]) - c["pred"])
         for c in cases
     )
+    return round(worst, 12)  # rounding noise of another platform must not change VALIDATION.md
 
 
 def readme_check():
