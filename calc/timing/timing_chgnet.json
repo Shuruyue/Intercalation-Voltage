@@ -1,0 +1,33 @@
+{
+ "machine": {
+  "platform": "Windows-11-10.0.26320-SP0",
+  "processor": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+  "python": "3.12.16"
+ },
+ "runs": [
+  {
+   "n_atoms": 4,
+   "seconds": 0.08490476608276368
+  },
+  {
+   "n_atoms": 12,
+   "seconds": 0.2387404441833496
+  },
+  {
+   "n_atoms": 48,
+   "seconds": 0.9701111793518067
+  },
+  {
+   "n_atoms": 108,
+   "seconds": 2.1992074966430666
+  },
+  {
+   "n_atoms": 384,
+   "seconds": 7.406903171539307
+  },
+  {
+   "n_atoms": 864,
+   "seconds": 50.21074047088623
+  }
+ ]
+}

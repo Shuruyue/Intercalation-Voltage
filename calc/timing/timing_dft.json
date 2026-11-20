@@ -1,0 +1,53 @@
+{
+ "machine": {
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "processor": "",
+  "python": "3.12.16"
+ },
+ "runs": [
+  {
+   "cell": "prim",
+   "n_atoms": 4,
+   "kmesh": [
+    7,
+    7,
+    7
+   ],
+   "seconds": 18.098015785217285,
+   "E_per_atom": -6.444606000263607
+  },
+  {
+   "cell": "conv",
+   "n_atoms": 12,
+   "kmesh": [
+    7,
+    7,
+    2
+   ],
+   "seconds": 19.292726278305054,
+   "E_per_atom": -6.445599314278472
+  },
+  {
+   "cell": "2x1x1",
+   "n_atoms": 24,
+   "kmesh": [
+    4,
+    7,
+    2
+   ],
+   "seconds": 161.84742212295532,
+   "E_per_atom": -6.44590260680024
+  },
+  {
+   "cell": "2x2x1",
+   "n_atoms": 48,
+   "kmesh": [
+    4,
+    4,
+    2
+   ],
+   "seconds": 300.3329927921295,
+   "E_per_atom": -6.445466401082111
+  }
+ ]
+}

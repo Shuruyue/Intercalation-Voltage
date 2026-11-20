@@ -1,0 +1,20 @@
+{
+ "T": 800.0,
+ "seed": 5,
+ "steps": 12500,
+ "timestep_fs": 2.0,
+ "log_interval": 10,
+ "n_atoms": 106,
+ "ensemble": "NVT Berendsen (chgnet default), taut = 100 steps",
+ "minutes": 15.38610343535741,
+ "seconds_per_step": 0.07385329648971557,
+ "device": "cuda",
+ "gpu": "NVIDIA GeForce RTX 3060",
+ "versions": {
+  "chgnet": "0.4.2",
+  "chgnet_model": "0.3.0",
+  "torch": "2.11.0+cu128",
+  "ase": "3.29.0",
+  "python": "3.12.16"
+ }
+}

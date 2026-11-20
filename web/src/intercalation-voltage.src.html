@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intercalation Voltage</title>
+<meta name="description" content="Average voltage of an insertion electrode predicted by a gradient-boosting model trained on lithium electrodes of the Materials Project, with a warning light for compositions unlike its training data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: instrument console (house style of Ethanol-Water-VLE) — control rail on the left, readout strip on top, chart cards. */
+:root {
+  --page: #f2f2ee; --surface: #fcfcfb; --surface-2: #f6f6f2; --ink: #141412; --ink-2: #52514e; --muted: #7d7b75;
+  --grid: #e5e4de; --axis: #c3c2b7; --line: rgba(11,11,11,.11);
+  --accent: #2a78d6; --accent-ink: #1c5cab; --accent-soft: #e3eefb;
+  --li: #2a78d6; --na: #d03b3b; --dft: #eb6834; --chg: #1baf7a; --oth: #6250d6;
+  --good: #006300; --crit: #d03b3b; --warn-mark: #fab219;
+  --font-ui: "IBM Plex Sans", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0f0f0e; --surface: #1a1a19; --surface-2: #222220; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f8d86;
+    --grid: #2c2c2a; --axis: #45443f; --line: rgba(255,255,255,.10);
+    --accent: #3987e5; --accent-ink: #86b6ef; --accent-soft: #16273d;
+    --li: #3987e5; --na: #e66767; --dft: #d95926; --chg: #199e70; --oth: #8f7fe8;
+    --good: #0ca30c; --crit: #e66767;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0f0f0e; --surface: #1a1a19; --surface-2: #222220; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #8f8d86;
+  --grid: #2c2c2a; --axis: #45443f; --line: rgba(255,255,255,.10);
+  --accent: #3987e5; --accent-ink: #86b6ef; --accent-soft: #16273d;
+  --li: #3987e5; --na: #e66767; --dft: #d95926; --chg: #199e70; --oth: #8f7fe8;
+  --good: #0ca30c; --crit: #e66767;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font-ui); font-size: 14px; line-height: 1.5; }
+.app { max-width: 1320px; margin: 0 auto; padding-block: 20px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 24px; margin-bottom: 14px; }
+.head h1 { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.01em; }
+.head h1 .en { display: block; font-size: .8rem; font-weight: 500; color: var(--muted); letter-spacing: .03em; margin-bottom: 2px; }
+.head .sys { color: var(--ink-2); font-size: .86rem; max-width: 66ch; margin: 0; }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); margin-bottom: 14px; overflow-x: auto; overflow-y: hidden; }
+.tab { font: inherit; font-size: .9rem; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink-2); padding: 8px 12px 9px; cursor: pointer; white-space: nowrap; margin-bottom: -1px; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 500; }
+.layout { display: grid; grid-template-columns: 296px minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 920px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+.rail { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 14px 16px; display: grid; gap: 16px;
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow-y: auto; }
+@media (max-width: 920px) { .rail { position: static; max-height: none; } }
+.grp { display: grid; gap: 10px; }
+.grp > h2 { font-size: .78rem; font-weight: 600; color: var(--muted); letter-spacing: .04em; }
+.field { display: grid; gap: 4px; }
+.field label { font-size: .86rem; }
+.field small { color: var(--muted); font-size: .74rem; }
+.field input { font: inherit; font-family: var(--font-num); font-size: 1rem; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 100%; }
+.field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.presets { display: grid; gap: 6px; }
+.preset { text-align: left; font: inherit; font-size: .84rem; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; cursor: pointer; display: grid; gap: 1px; }
+.preset small { color: var(--muted); font-size: .74rem; }
+.preset:hover { border-color: var(--accent); }
+.preset[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.derived { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: .8rem; color: var(--ink-2); background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
+.derived .num { color: var(--ink); text-align: right; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.ro { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px 11px; min-width: 0; }
+.ro .k { font-size: .76rem; color: var(--muted); letter-spacing: .02em; display: flex; align-items: center; gap: 6px; }
+.ro .k i { width: 10px; height: 3px; border-radius: 2px; flex: none; }
+.ro .v { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 1.22rem; font-weight: 500; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ro .v small { font-size: .74rem; color: var(--ink-2); font-weight: 400; }
+.ro .s { font-size: .78rem; color: var(--ink-2); margin-top: 2px; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: .74rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2); white-space: nowrap; font-family: var(--font-ui); }
+.pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.pill.good::before { background: var(--good); }
+.pill.bad::before { background: var(--crit); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 12px 10px; min-width: 0; }
+.card > h3 { font-size: .92rem; font-weight: 600; }
+.card > .sub { font-size: .78rem; color: var(--muted); margin-top: 1px; }
+.chart { margin-top: 8px; position: relative; }
+.chart svg { display: block; width: 100%; }
+.chart text.tk { font-family: var(--font-num); font-size: 10.5px; fill: var(--muted); }
+.chart text.lab { font-family: var(--font-ui); font-size: 11.5px; fill: var(--ink-2); }
+.chart text.ann { font-family: var(--font-ui); font-size: 11px; fill: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 3px 14px; font-size: .78rem; color: var(--ink-2); margin-top: 8px; }
+.legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+table.nb { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: .82rem; }
+table.nb th { text-align: left; font-weight: 500; color: var(--muted); font-size: .74rem; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+table.nb td { padding: 5px 6px; border-bottom: 1px solid var(--line); }
+table.nb td.num { text-align: right; }
+.err { color: var(--crit); font-size: .86rem; }
+.note { font-size: .82rem; color: var(--ink-2); background: var(--surface-2); border-radius: 8px; padding: 8px 10px; margin-top: 10px; }
+.answer { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--r); padding: 10px 14px; font-size: .9rem; margin-top: 14px; }
+.answer p { margin: 0; max-width: 80ch; }
+.answer p + p { margin-top: 6px; }
+.about { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 18px; display: grid; gap: 10px; }
+.about h2 { font-size: 1rem; font-weight: 600; }
+.about p, .about li { max-width: 86ch; margin: 0; color: var(--ink-2); }
+.about ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.about a { color: var(--accent-ink); }
+.about table { border-collapse: collapse; font-size: .84rem; }
+.about td, .about th { padding: 4px 12px 4px 0; border-bottom: 1px solid var(--line); text-align: left; }
+.about td.num { text-align: right; }
+footer { font-size: .78rem; color: var(--muted); margin-top: 18px; max-width: 100ch; }
+</style>
+<div class="app">
+  <header class="head">
+    <h1><span class="en">Materials Project insertion electrodes (2019 snapshot) · gradient boosting trained on lithium only</span>What voltage will this electrode give?</h1>
+    <p class="sys">Type the discharged and charged compositions of an insertion reaction. A model trained on <span id="h-nli"></span> lithium reactions predicts the average voltage; a warning light says whether the training data held anything like it.</p>
+  </header>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="t-run" aria-selected="true" aria-controls="p-run">Predict</button>
+    <button class="tab" role="tab" id="t-about" aria-selected="false" aria-controls="p-about">About the model</button>
+  </div>
+
+  <section id="p-run" role="tabpanel" aria-labelledby="t-run">
+    <div class="layout">
+      <aside class="rail" aria-label="Reaction">
+        <div class="grp"><h2>REACTION</h2>
+          <div class="field"><label for="f-dis">Discharged composition</label>
+            <input id="f-dis" value="LiCoO2" autocomplete="off" spellcheck="false"></div>
+          <div class="field"><label for="f-chg">Charged composition</label>
+            <input id="f-chg" value="CoO2" autocomplete="off" spellcheck="false" placeholder="empty: all of the ion removed">
+            <small>Formulas such as Li3V2(PO4)3 or LiFe0.5Mn0.5PO4; the working ion is the first of Li, Na, K, Mg, Ca, Zn, Al, Y, Rb, Cs found.</small></div>
+          <div class="derived" id="derived"></div>
+        </div>
+        <div class="grp"><h2>EXAMPLES</h2>
+          <div class="presets" id="presets">
+            <button type="button" class="preset" data-d="LiCoO2" data-c="CoO2"><span>LiCoO<sub>2</sub> → CoO<sub>2</sub></span><small>layered oxide, the first Li-ion cathode</small></button>
+            <button type="button" class="preset" data-d="LiFePO4" data-c="FePO4"><span>LiFePO<sub>4</sub> → FePO<sub>4</sub></span><small>olivine</small></button>
+            <button type="button" class="preset" data-d="LiMn2O4" data-c="Mn2O4"><span>LiMn<sub>2</sub>O<sub>4</sub> → Mn<sub>2</sub>O<sub>4</sub></span><small>spinel</small></button>
+            <button type="button" class="preset" data-d="NaCoO2" data-c="CoO2"><span>NaCoO<sub>2</sub> → CoO<sub>2</sub></span><small>the same host with sodium</small></button>
+            <button type="button" class="preset" data-d="NaFePO4" data-c="FePO4"><span>NaFePO<sub>4</sub> → FePO<sub>4</sub></span><small>olivine with sodium</small></button>
+            <button type="button" class="preset" data-d="Na3V2(PO4)3" data-c="V2(PO4)3"><span>Na<sub>3</sub>V<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub> → V<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub></span><small>NASICON sodium cathode</small></button>
+            <button type="button" class="preset" data-d="KCoO2" data-c="CoO2"><span>KCoO<sub>2</sub> → CoO<sub>2</sub></span><small>potassium</small></button>
+          </div></div>
+        <div class="grp"><h2>TRAINING DATA</h2>
+          <div class="derived" id="train"></div></div>
+      </aside>
+      <div>
+        <div class="readouts" aria-live="polite">
+          <div class="ro"><div class="k"><i style="background:var(--li)"></i>Predicted voltage</div><div class="v" id="r-v"></div><div class="s" id="r-v-s"></div></div>
+          <div class="ro"><div class="k"><i style="background:var(--ink)"></i>Database (GGA+U)</div><div class="v" id="r-db"></div><div class="s" id="r-db-s"></div></div>
+          <div class="ro"><div class="k">Distance to the training data</div><div class="v" id="r-d"></div><div class="s" id="r-d-s"></div></div>
+          <div class="ro"><div class="k">Typical error</div><div class="v" id="r-e"></div><div class="s" id="r-e-s"></div></div>
+        </div>
+        <div class="err" id="err" role="alert"></div>
+        <div class="grid2">
+          <div class="card"><h3>Where this reaction sits</h3>
+            <div class="sub">Distance to the 5 nearest training reactions, for every Li reaction (to its own training fold) and every Na reaction. Dashed: the red-light threshold; vertical mark: this reaction.</div>
+            <div class="chart" id="hist"></div>
+            <div class="legend"><span><i style="background:var(--li)"></i>Li, unseen host systems</span><span><i style="background:var(--na)"></i>Na</span></div></div>
+          <div class="card"><h3>Nearest training reactions</h3>
+            <div class="sub">The five Li reactions the distance is measured to, with their database voltages.</div>
+            <table class="nb"><thead><tr><th>discharged → charged</th><th class="num">voltage (V)</th><th class="num">distance</th></tr></thead><tbody id="nb"></tbody></table>
+            <div class="note" id="nb-note"></div></div>
+        </div>
+        <div class="answer" id="answer"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-about" role="tabpanel" aria-labelledby="t-about" hidden>
+    <div class="about" id="about"></div>
+  </section>
+  <footer>Data: Materials Project battery explorer, snapshot of 2019-12-03 (Jain et al., APL Mater. 1 (2013) 011002). Features: Magpie (Ward et al., npj Comput. Mater. 2 (2016) 16028) via matminer. Model: scikit-learn gradient boosting. Every number on this page is computed by the scripts of the repository; the browser runs the same trees and features as Python, checked case by case.</footer>
+</div>
+
+<script>/*__CORE__*/</script>
+<script>/*__DATA__*/</script>
+<script>
+(function () {
+  "use strict";
+  var D = window.VOLTAGE_DATA, M = D.model, C = window.VoltageCore, $ = function (id) { return document.getElementById(id); };
+  var NS = "http://www.w3.org/2000/svg";
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function f2(v) { return v.toFixed(2); }
+  function sub(f) { return esc(f).replace(/(\d+(?:\.\d+)?)/g, "<sub>$1</sub>"); }
+
+  // ---------------- tabs
+  var TABS = [["t-run", "p-run"], ["t-about", "p-about"]];
+  function showTab(id) {
+    TABS.forEach(function (u) { $(u[0]).setAttribute("aria-selected", u[0] === id ? "true" : "false"); $(u[1]).hidden = u[0] !== id; });
+    if (id === "t-run") draw();
+  }
+  TABS.forEach(function (t) { $(t[0]).addEventListener("click", function () { showTab(t[0]); }); });
+
+  // ---------------- database lookup by normalized composition
+  function norm(c) { var n = 0, k, o = {}; for (k in c) n += c[k]; for (k in c) o[k] = c[k] / n; return o; }
+  function sameComp(a, b) {
+    var ka = Object.keys(a), kb = Object.keys(b); if (ka.length !== kb.length) return false;
+    for (var i = 0; i < ka.length; i++) if (!(ka[i] in b) || Math.abs(a[ka[i]] - b[ka[i]]) > 1e-6) return false;
+    return true;
+  }
+  var ROWS = D.rows.map(function (r) { return { d: r[0], c: r[1], ion: r[2], v: r[3], nd: norm(C.parseFormula(r[0])), nc: norm(C.parseFormula(r[1])) }; });
+  var LI = ROWS.filter(function (r) { return r.ion === "Li"; });
+  function lookup(res) {
+    var nd = norm(res.discharged), nc = norm(res.charged);
+    for (var i = 0; i < ROWS.length; i++) if (ROWS[i].ion === res.ion && sameComp(ROWS[i].nd, nd) && sameComp(ROWS[i].nc, nc)) return ROWS[i];
+    return null;
+  }
+
+  // ---------------- static text
+  var S = D.summary;
+  $("h-nli").textContent = S.n_li;
+  $("train").innerHTML = "<span>Li reactions</span><span class=num>" + S.n_li + "</span><span>host systems</span><span class=num>" + S.n_groups_li +
+    "</span><span>voltage range</span><span class=num>" + f2(M.train_v_range[0]) + "–" + f2(M.train_v_range[1]) + " V</span><span>red light above</span><span class=num>" + M.threshold.toFixed(1) + "</span>";
+  $("about").innerHTML = D.about_html;
+
+  // ---------------- histogram of distances (log x)
+  function histogram(host, cur) {
+    host.innerHTML = "";
+    var W = Math.max(300, host.clientWidth || 560), H = 250, m = { l: 44, r: 12, t: 12, b: 38 };
+    var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("height", H);
+    svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Histogram of distances to the training data"); host.appendChild(svg);
+    function el(tag, a) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; }
+    var E = D.hist.edges, lo = Math.log10(E[0]), hi = Math.log10(E[E.length - 1]), pw = W - m.l - m.r, ph = H - m.t - m.b;
+    var top = Math.max.apply(null, D.hist.li.concat(D.hist.na)) * 1.08;
+    function X(v) { return m.l + (Math.log10(Math.min(Math.max(v, E[0]), E[E.length - 1])) - lo) / (hi - lo) * pw; }
+    function Y(v) { return m.t + (1 - v / top) * ph; }
+    var step = Math.pow(10, Math.floor(Math.log10(top / 4))), yt = []; while (step * 5 < top / 1.5) step *= 2;
+    for (var y = 0; y <= top; y += step) yt.push(y);
+    yt.forEach(function (v) { el("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: "var(--grid)" }); var t = el("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end", class: "tk" }); t.textContent = v; });
+    [1, 2, 5, 10, 20, 50, 100].forEach(function (v) { var t = el("text", { x: X(v), y: H - m.b + 16, "text-anchor": "middle", class: "tk" }); t.textContent = v; });
+    el("line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: "var(--axis)" });
+    var xl = el("text", { x: m.l + pw / 2, y: H - 6, "text-anchor": "middle", class: "lab" }); xl.textContent = "distance (standardized feature space, log scale)";
+    [["li", "var(--li)", 0.55], ["na", "var(--na)", 0.5]].forEach(function (s) {
+      D.hist[s[0]].forEach(function (n, i) { if (!n) return; el("rect", { x: X(E[i]), y: Y(n), width: Math.max(0.5, X(E[i + 1]) - X(E[i]) - 0.5), height: Y(0) - Y(n), fill: s[1], "fill-opacity": s[2] }); });
+    });
+    el("line", { x1: X(M.threshold), x2: X(M.threshold), y1: m.t, y2: H - m.b, stroke: "var(--ink)", "stroke-dasharray": "5 4" });
+    var tt = el("text", { x: X(M.threshold) + 4, y: m.t + 10, class: "ann" }); tt.textContent = "red light";
+    if (cur !== null) {
+      el("line", { x1: X(cur), x2: X(cur), y1: m.t, y2: H - m.b, stroke: "var(--accent)", "stroke-width": 2.5 });
+      var ct = el("text", { x: X(cur) + (X(cur) > W - 100 ? -4 : 4), y: m.t + 26, class: "ann", "text-anchor": X(cur) > W - 100 ? "end" : "start" }); ct.textContent = "this reaction";
+    }
+  }
+
+  // ---------------- main
+  function draw() {
+    var dis = $("f-dis").value, chg = $("f-chg").value, res;
+    Array.prototype.forEach.call($("presets").children, function (b) { b.setAttribute("aria-pressed", b.dataset.d === dis.trim() && b.dataset.c === chg.trim() ? "true" : "false"); });
+    try { res = C.run(dis, chg, null, M); $("err").textContent = ""; }
+    catch (e) {
+      $("err").textContent = e.message;
+      ["r-v", "r-db", "r-d", "r-e"].forEach(function (id) { $(id).textContent = "–"; });
+      ["r-v-s", "r-db-s", "r-d-s", "r-e-s", "nb-note"].forEach(function (id) { $(id).textContent = ""; });
+      $("nb").innerHTML = ""; $("answer").innerHTML = ""; $("derived").innerHTML = ""; histogram($("hist"), null); return;
+    }
+    var x = C.features(dis, chg, null, M).x;
+    $("derived").innerHTML = "<span>working ion</span><span class=num>" + esc(res.ion) + "</span><span>charged</span><span class=num>" + esc(C.formatComp(res.charged)) +
+      "</span><span>ion per atom inserted</span><span class=num>" + x[264].toFixed(3) + "</span>";
+    var db = lookup(res), isLi = res.ion === "Li";
+    $("r-v").innerHTML = f2(res.voltage) + "<small> V</small>";
+    $("r-v-s").textContent = "vs " + res.ion + " metal, average over the step";
+    $("r-db").innerHTML = db ? f2(db.v) + "<small> V</small>" : "–";
+    $("r-db-s").textContent = db ? "this step is in the snapshot" + (isLi ? " (a training reaction)" : "") : "this step is not in the snapshot";
+    $("r-d").innerHTML = res.distance.toFixed(1) + ' <span class="pill ' + (res.inside ? "good" : "bad") + '">' + (res.inside ? "inside" : "outside") + "</span>";
+    $("r-d-s").textContent = res.inside ? "like the training data" : "nothing similar was in the training data";
+    $("r-e").innerHTML = (isLi ? S.mae_li : res.ion === "Na" ? S.mae_na : "?") + "<small> V</small>";
+    $("r-e-s").textContent = isLi ? "mean error on unseen Li host systems" : res.ion === "Na" ? "mean error on the " + S.n_na + " Na reactions" : "not measured for " + res.ion + "; the model has never seen this ion";
+    histogram($("hist"), res.distance);
+    var rows = "";
+    res.neighbours.index.forEach(function (i, k) {
+      var r = LI[i];
+      rows += "<tr><td>" + sub(r.d) + " → " + sub(r.c) + "</td><td class=num>" + f2(r.v) + "</td><td class=num>" + res.neighbours.each[k].toFixed(1) + "</td></tr>";
+    });
+    $("nb").innerHTML = rows;
+    var vs = res.neighbours.index.map(function (i) { return LI[i].v; });
+    $("nb-note").textContent = "Their voltages span " + f2(Math.min.apply(null, vs)) + "–" + f2(Math.max.apply(null, vs)) + " V. A tree model can only return combinations of training voltages, never a value outside " + f2(M.train_v_range[0]) + "–" + f2(M.train_v_range[1]) + " V.";
+    var p1, p2;
+    if (db) p1 = "The model gives <b>" + f2(res.voltage) + " V</b>; the database (a GGA+U calculation) gives " + f2(db.v) + " V, " + (res.voltage - db.v >= 0 ? "+" : "−") + f2(Math.abs(res.voltage - db.v)) + " V off" + (isLi ? ", on a reaction it was trained on." : ".");
+    else p1 = "The model gives <b>" + f2(res.voltage) + " V</b>. This step is not in the database, so there is no computed value to compare with.";
+    if (isLi && res.inside) p2 = "The light is green: reactions like this one were in the training data, and on unseen Li host systems the mean error is " + S.mae_li + " V.";
+    else if (isLi) p2 = "The light is red although this is a Li reaction: its composition is unlike any training reaction. Unseen Li hosts with a red light have a mean error of " + S.mae_li_flagged + " V, against " + S.mae_li_noflag + " V for the rest.";
+    else if (res.ion === "Na") p2 = "The model was trained on Li only. On sodium its mean error rises to " + S.mae_na + " V, it predicts the Na versions of matched hosts " + S.pairs_pred_abs + " V below their Li versions where the database says " + S.pairs_data_abs + " V, and " + S.flag_na + " % of Na reactions get a red light. Within Na, the distance does not say which predictions are worse.";
+    else p2 = "The model was trained on Li only and has never seen " + esc(res.ion) + "; the number is an extrapolation, whatever the light says.";
+    $("answer").innerHTML = "<p>" + p1 + "</p><p>" + p2 + "</p>";
+  }
+  ["f-dis", "f-chg"].forEach(function (id) { $(id).addEventListener("input", draw); });
+  $("presets").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button"); if (!b) return; $("f-dis").value = b.dataset.d; $("f-chg").value = b.dataset.c; draw();
+  });
+  var q = new URLSearchParams(location.search);   // link to a reaction: ?d=NaCoO2&c=CoO2 (read into inputs only)
+  if (q.get("d")) { $("f-dis").value = q.get("d").slice(0, 60); $("f-chg").value = (q.get("c") || "").slice(0, 60); }
+  setTimeout(function () { if (location.hash === "#about") showTab("t-about"); }, 0);
+  var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { if (!$("p-run").hidden) draw(); }, 150); });
+  draw();
+})();
+</script>
+</html>

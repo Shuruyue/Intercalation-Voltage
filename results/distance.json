@@ -1,0 +1,102 @@
+{
+ "k": 5,
+ "percentile": 95,
+ "n_features_used": 238,
+ "n_constant_in_li": 28,
+ "constant_features_in_li": [
+  "discharged: MagpieData minimum MendeleevNumber",
+  "discharged: MagpieData minimum Column",
+  "discharged: MagpieData maximum NsValence",
+  "discharged: MagpieData minimum NpValence",
+  "discharged: MagpieData minimum NdValence",
+  "discharged: MagpieData minimum NfValence",
+  "discharged: MagpieData mode NfValence",
+  "discharged: MagpieData minimum NValence",
+  "discharged: MagpieData minimum NsUnfilled",
+  "discharged: MagpieData maximum NsUnfilled",
+  "discharged: MagpieData range NsUnfilled",
+  "discharged: MagpieData minimum NpUnfilled",
+  "discharged: MagpieData minimum NdUnfilled",
+  "discharged: MagpieData mode NdUnfilled",
+  "discharged: MagpieData minimum NfUnfilled",
+  "discharged: MagpieData mode NfUnfilled",
+  "discharged: MagpieData minimum GSbandgap",
+  "discharged: MagpieData minimum GSmagmom",
+  "discharged: MagpieData mode GSmagmom",
+  "discharged: MagpieData maximum SpaceGroupNumber",
+  "charged: MagpieData maximum NsValence",
+  "charged: MagpieData minimum NsUnfilled",
+  "charged: MagpieData minimum NdUnfilled",
+  "charged: MagpieData mode NdUnfilled",
+  "charged: MagpieData minimum NfUnfilled",
+  "charged: MagpieData mode NfUnfilled",
+  "charged: MagpieData minimum GSmagmom",
+  "charged: MagpieData mode GSmagmom"
+ ],
+ "threshold": 11.794792752689837,
+ "median_li_cv": 4.09767448185733,
+ "median_na": 19.395588379467732,
+ "frac_na_flagged": 0.9235474006116208,
+ "frac_li_flagged": 0.050416054821341164,
+ "mae_na_flagged": 0.5726681083140356,
+ "mae_na_not_flagged": 0.6096736506354149,
+ "mae_li_flagged": 0.666880749506999,
+ "mae_li_not_flagged": 0.42309123700069035,
+ "spearman_dist_abs_err_na": -0.16618676444545727,
+ "spearman_dist_abs_err_li": 0.17770136725844543,
+ "frac_na_differs_in_a_constant_feature": 0.9724770642201835,
+ "bins": [
+  {
+   "d_lo": 1.2953551545065902,
+   "d_hi": 2.963441885149194,
+   "mae": 0.3402319486808176,
+   "n": 395,
+   "frac_na": 0.0,
+   "mae_li": 0.3402319486808176
+  },
+  {
+   "d_lo": 2.963441885149194,
+   "d_hi": 3.7282180348510763,
+   "mae": 0.37146766494627165,
+   "n": 395,
+   "frac_na": 0.007594936708860759,
+   "mae_li": 0.3714909497723972
+  },
+  {
+   "d_lo": 3.7282180348510763,
+   "d_hi": 4.450308730983806,
+   "mae": 0.3857122259279631,
+   "n": 395,
+   "frac_na": 0.007594936708860759,
+   "mae_li": 0.38489146082959136
+  },
+  {
+   "d_lo": 4.450308730983806,
+   "d_hi": 5.909853708576757,
+   "mae": 0.48344559696103956,
+   "n": 395,
+   "frac_na": 0.002531645569620253,
+   "mae_li": 0.48335755659179397
+  },
+  {
+   "d_lo": 5.909853708576757,
+   "d_hi": 11.988018061269095,
+   "mae": 0.5533331200570418,
+   "n": 395,
+   "frac_na": 0.060759493670886074,
+   "mae_li": 0.5443004134179374
+  },
+  {
+   "d_lo": 11.988018061269095,
+   "d_hi": 88.88415006888009,
+   "mae": 0.5940963471161937,
+   "n": 395,
+   "frac_na": 0.7493670886075949,
+   "mae_li": 0.6688268850549098
+  }
+ ],
+ "pca_explained": [
+  0.1613204017419586,
+  0.14795355607761568
+ ]
+}

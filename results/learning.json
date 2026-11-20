@@ -1,0 +1,239 @@
+{
+ "params": {
+  "n_estimators": 400,
+  "learning_rate": 0.05,
+  "max_depth": 4,
+  "subsample": 0.8,
+  "random_state": 0
+ },
+ "n_li": 2043,
+ "n_na": 327,
+ "n_total": 3430,
+ "n_groups_li": 489,
+ "n_groups_na": 146,
+ "ion_counts": {
+  "Li": 2043,
+  "Na": 327,
+  "Ca": 307,
+  "Mg": 217,
+  "Zn": 198,
+  "K": 123,
+  "Y": 77,
+  "Al": 69,
+  "Rb": 38,
+  "Cs": 31
+ },
+ "voltage_stats": {
+  "Li": {
+   "mean": 3.3729365188793508,
+   "std": 1.0226457553031003,
+   "min": 0.0429990550000005,
+   "max": 5.977201855000002
+  },
+  "Na": {
+   "mean": 3.087893554679158,
+   "std": 1.1668655616261894,
+   "min": 0.1186284500000056,
+   "max": 5.771068965
+  }
+ },
+ "li_cv": {
+  "group_mae": 0.4353821424280765,
+  "group_r2": 0.6556645384303073,
+  "random_mae": 0.3991628839454837,
+  "random_r2": 0.6971488279049014,
+  "dummy_mae": 0.8151567952547634,
+  "frac_err_gt_1V": 0.09446891825746451
+ },
+ "fit_seconds_li": 16.84521198272705,
+ "li_to_na": {
+  "mae": 0.5754972782162817,
+  "r2": 0.5961335555233638,
+  "bias": -0.15547568801657916,
+  "dummy_mae": 0.9608070798519661,
+  "frac_err_gt_1V": 0.1651376146788991
+ },
+ "others_to_na": {
+  "mae": 0.44732495857573995,
+  "r2": 0.7286290779051416,
+  "bias": 0.09858517884546826,
+  "n_train": 3103
+ },
+ "pairs": {
+  "n": 127,
+  "data_mean_vna_minus_vli": -0.212802513532371,
+  "data_std_vna_minus_vli": 0.34263477473443626,
+  "frac_na_lower": 0.7086614173228346,
+  "pred_na_minus_data_li": -0.5308023700201292,
+  "pred_na_minus_pred_li_insample": -0.49845171180464826,
+  "pred_na_minus_pred_li_oof": -0.423618074249337
+ },
+ "features_outside_li_range": [
+  {
+   "name": "discharged: MagpieData minimum Number",
+   "frac_na_outside": 0.9724770642201835
+  },
+  {
+   "name": "discharged: MagpieData minimum MendeleevNumber",
+   "frac_na_outside": 0.9724770642201835
+  },
+  {
+   "name": "discharged: MagpieData minimum AtomicWeight",
+   "frac_na_outside": 0.9724770642201835
+  },
+  {
+   "name": "discharged: MagpieData minimum Row",
+   "frac_na_outside": 0.09480122324159021
+  },
+  {
+   "name": "discharged: MagpieData minimum GSvolume_pa",
+   "frac_na_outside": 0.04281345565749235
+  },
+  {
+   "name": "discharged: MagpieData mode Electronegativity",
+   "frac_na_outside": 0.021406727828746176
+  },
+  {
+   "name": "discharged: MagpieData avg_dev CovalentRadius",
+   "frac_na_outside": 0.01529051987767584
+  },
+  {
+   "name": "discharged: MagpieData mean CovalentRadius",
+   "frac_na_outside": 0.012232415902140673
+  }
+ ],
+ "frac_na_with_any_feature_outside": 0.9724770642201835,
+ "top_features_li_model": [
+  {
+   "name": "discharged: MagpieData mean CovalentRadius",
+   "importance": 0.30473829981284173
+  },
+  {
+   "name": "charged: MagpieData mean CovalentRadius",
+   "importance": 0.06356363608104099
+  },
+  {
+   "name": "charged: MagpieData mean Electronegativity",
+   "importance": 0.030446116602662644
+  },
+  {
+   "name": "discharged: MagpieData mean GSvolume_pa",
+   "importance": 0.029842309731760195
+  },
+  {
+   "name": "discharged: MagpieData avg_dev CovalentRadius",
+   "importance": 0.02236595041647317
+  },
+  {
+   "name": "discharged: MagpieData mean Electronegativity",
+   "importance": 0.020372623129926992
+  },
+  {
+   "name": "charged: MagpieData avg_dev CovalentRadius",
+   "importance": 0.018316105709256927
+  },
+  {
+   "name": "charged: MagpieData mean GSvolume_pa",
+   "importance": 0.017193777681559757
+  },
+  {
+   "name": "charged: MagpieData mean MeltingT",
+   "importance": 0.01620196105122996
+  },
+  {
+   "name": "discharged: MagpieData mean Column",
+   "importance": 0.014062220719055907
+  }
+ ],
+ "learning_curve": {
+  "k": [
+   0,
+   10,
+   25,
+   50,
+   100
+  ],
+  "mae_mean": [
+   0.583845135544183,
+   0.5439637115196645,
+   0.5324544867562053,
+   0.5116014730078359,
+   0.48092683379583673
+  ],
+  "mae_std": [
+   0.03186576585093392,
+   0.04472902988238767,
+   0.05002171354753627,
+   0.04479235959822344,
+   0.045466794942513294
+  ],
+  "splits": 10,
+  "test_share_of_na_hosts": 0.4,
+  "others_mae_mean": 0.4390422045976982,
+  "others_mae_std": 0.03142279369127659,
+  "others_size_matched_mae_mean": 0.4613954535470735,
+  "others_size_matched_mae_std": 0.041270557171886275,
+  "size_matched_n_train": 2043
+ },
+ "speed": {
+  "predict_seconds_per_reaction": 6.655955314636231e-06,
+  "featurize_seconds_per_reaction": 0.0023165392875671388,
+  "seconds_per_reaction": 0.002323195242881775,
+  "note": "two compositions featurized per reaction"
+ },
+ "toy": {
+  "pred_at_2": 1.9999647992786922,
+  "true_at_2": 4.0,
+  "train_y_max": 2.0
+ },
+ "lookup": {
+  "LiCoO2": [
+   {
+    "charged": "Li(CoO2)2",
+    "v": 2.8163705724999963
+   },
+   {
+    "charged": "Li2(CoO2)3",
+    "v": 1.9313539849999988
+   },
+   {
+    "charged": "Li3(CoO2)4",
+    "v": 3.577549039999985
+   }
+  ],
+  "NaCoO2": [
+   {
+    "charged": "CoO2",
+    "v": 2.538984585000004
+   },
+   {
+    "charged": "Na(CoO2)3",
+    "v": 2.671979965
+   },
+   {
+    "charged": "Na3(CoO2)4",
+    "v": 2.115030175000011
+   },
+   {
+    "charged": "Na3(CoO2)5",
+    "v": 1.407502074999994
+   }
+  ],
+  "LiFePO4": [
+   {
+    "charged": "FePO4",
+    "v": 3.245722856874999
+   },
+   {
+    "charged": "LiFe2(PO4)2",
+    "v": 3.565751894999996
+   }
+  ],
+  "NaFePO4": [
+   {
+    "charged": "FePO4",
+    "v": 2.9412835524999985
+   }
+  ]
+ }
+}

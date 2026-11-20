@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+node_modules/
+*.tmp
+# MD trajectories (9 MB each) and GPAW restart files stay local; analysis.json of each run is committed
+calc/md/runs/*/*.traj
+*.gpw
+# local notes, not part of the repository
+talk/
+data/features.npz
+# GPAW text output and stdout logs carry the host name and local paths; the JSON results and BFGS logs are committed
+calc/dft/output/gpaw_*.txt
+calc/dft/output/log_*.out
+calc/timing/timing_*.txt

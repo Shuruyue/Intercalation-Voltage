@@ -1,0 +1,26 @@
+{
+ "raw_rows": 5133,
+ "after_voltage_filter": 4965,
+ "after_stability_filter": 4297,
+ "unique_steps": 3430,
+ "dropped_nonfinite": 0,
+ "final_rows": 3430,
+ "per_ion": {
+  "Li": 2043,
+  "Na": 327,
+  "Ca": 307,
+  "Mg": 217,
+  "Zn": 198,
+  "K": 123,
+  "Y": 77,
+  "Al": 69,
+  "Rb": 38,
+  "Cs": 31
+ },
+ "n_features": 266,
+ "filters": {
+  "V_min_exclusive": 0.0,
+  "V_max": 6.0,
+  "E_hull_max_eV_per_atom": 0.2
+ }
+}

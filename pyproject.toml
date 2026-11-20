@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intercalation-voltage"
+version = "0.1.0"
+description = "Average intercalation voltage from DFT, a machine-learned potential and gradient boosting, and how far a model trained on lithium electrodes carries to sodium"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Shuruyue" }]
+dependencies = ["numpy>=2.0", "scipy>=1.11", "pandas>=2.1", "scikit-learn>=1.5", "matplotlib>=3.8",
+                "pymatgen>=2024.1", "matminer>=0.9", "ase>=3.23"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.6"]
+md = ["chgnet>=0.4", "torch>=2.4"]
+
+[tool.setuptools]
+packages = ["intercalation_voltage"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["talk"]   # local notes, not part of the repository
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# the About tab of the page is an HTML template
+"scripts/build_web_page.py" = ["E501"]

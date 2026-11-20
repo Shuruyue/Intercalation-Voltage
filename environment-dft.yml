@@ -1,0 +1,18 @@
+# Linux (or WSL) environment for the GPAW runs: calc/dft/dft_voltage.py and calc/timing/timing.py dft.
+# GPAW has no native Windows build. Versions = the ones the results in calc/dft/output were produced with.
+#   conda env create -f environment-dft.yml && conda activate intercalation-dft
+name: intercalation-dft
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - gpaw=26.7.0
+  - gpaw-data=1.0.1
+  - ase=3.29.0
+  - numpy=2.5.5
+  - scipy=1.18.1
+  - pip
+  - pip:
+      - pymatgen==2026.10.24
+variables:
+  OMP_NUM_THREADS: "4"

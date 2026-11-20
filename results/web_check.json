@@ -1,0 +1,2506 @@
+[
+{
+"discharged": "AlCuSe2",
+"charged": "Al2(CuSe2)3",
+"ion": "Al",
+"pred": 1.9655407130205105,
+"dist": 68.0980066443958,
+"named": false
+},
+{
+"discharged": "AlCu3",
+"charged": "Al4Cu15",
+"ion": "Al",
+"pred": 0.5828072039210118,
+"dist": 81.67942446046057,
+"named": false
+},
+{
+"discharged": "AlFeF5",
+"charged": "AlFe3F15",
+"ion": "Al",
+"pred": 4.9041786436002575,
+"dist": 60.96596104926865,
+"named": false
+},
+{
+"discharged": "Ba2Mn2ZnCuF14",
+"charged": "Ba2Mn2CuF14",
+"ion": "Zn",
+"pred": 2.8706413417671626,
+"dist": 30.036719611434318,
+"named": false
+},
+{
+"discharged": "Ba2CaTi2CuF14",
+"charged": "Ba2Ti2CuF14",
+"ion": "Ca",
+"pred": 2.646760765038854,
+"dist": 29.529166224585516,
+"named": false
+},
+{
+"discharged": "Ba2YV2F11",
+"charged": "Ba2V2F11",
+"ion": "Y",
+"pred": 2.3270169125711275,
+"dist": 47.023958046294545,
+"named": false
+},
+{
+"discharged": "Ba8LiNb7O24",
+"charged": "Ba8Nb7O24",
+"ion": "Li",
+"pred": 2.334152886159293,
+"dist": 5.739940440817305,
+"named": false
+},
+{
+"discharged": "NaBi(PO3)4",
+"charged": "Bi(PO3)4",
+"ion": "Na",
+"pred": 4.402322693137298,
+"dist": 20.428919491630705,
+"named": false
+},
+{
+"discharged": "AlBi(WO4)2",
+"charged": "Bi(WO4)2",
+"ion": "Al",
+"pred": 4.283975227813056,
+"dist": 58.48675501476898,
+"named": false
+},
+{
+"discharged": "LiBi2(SO4)3",
+"charged": "Bi2(SO4)3",
+"ion": "Li",
+"pred": 1.7989716396563264,
+"dist": 4.0094509181439335,
+"named": false
+},
+{
+"discharged": "MgBiF5",
+"charged": "BiF5",
+"ion": "Mg",
+"pred": 4.946613783632631,
+"dist": 57.440666074093656,
+"named": false
+},
+{
+"discharged": "Ca(TiS2)4",
+"charged": "Ca(TiS2)8",
+"ion": "Ca",
+"pred": 1.5188966759087705,
+"dist": 63.9248827499827,
+"named": false
+},
+{
+"discharged": "Ca5Cu2(RhO6)2",
+"charged": "Ca2CuRhO6",
+"ion": "Ca",
+"pred": 2.376294728043702,
+"dist": 22.19207771742604,
+"named": false
+},
+{
+"discharged": "Ca2ZnSn",
+"charged": "Ca2Sn",
+"ion": "Zn",
+"pred": 0.30993744588237654,
+"dist": 85.90057123215874,
+"named": false
+},
+{
+"discharged": "Ca2CoWO6",
+"charged": "Ca3Co2(WO6)2",
+"ion": "Ca",
+"pred": 2.0928167368258923,
+"dist": 43.603326281527465,
+"named": false
+},
+{
+"discharged": "Ca2MnIrO6",
+"charged": "Ca3Mn2(IrO6)2",
+"ion": "Ca",
+"pred": 2.1026122300856076,
+"dist": 43.697554855443755,
+"named": false
+},
+{
+"discharged": "Ca2MnWO6",
+"charged": "Ca3Mn2(WO6)2",
+"ion": "Ca",
+"pred": 1.9664469834098057,
+"dist": 43.490684629925205,
+"named": false
+},
+{
+"discharged": "Ca3MnN3",
+"charged": "Ca5(MnN3)2",
+"ion": "Ca",
+"pred": 1.1229773751803287,
+"dist": 53.4069463095906,
+"named": false
+},
+{
+"discharged": "Ca9Cr(PO4)7",
+"charged": "Ca8Cr(PO4)7",
+"ion": "Ca",
+"pred": 3.2897483884268333,
+"dist": 21.083322451070465,
+"named": false
+},
+{
+"discharged": "CaCuP2O7",
+"charged": "CaCu2(P2O7)2",
+"ion": "Ca",
+"pred": 3.191640189452648,
+"dist": 21.528111111698394,
+"named": false
+},
+{
+"discharged": "Ca3Mn2(WO6)2",
+"charged": "CaMnWO6",
+"ion": "Ca",
+"pred": 2.177848229495309,
+"dist": 43.37128987432597,
+"named": false
+},
+{
+"discharged": "ZnCo(GeO3)2",
+"charged": "Co(GeO3)2",
+"ion": "Zn",
+"pred": 4.412409097766845,
+"dist": 63.09593073432014,
+"named": false
+},
+{
+"discharged": "Li3Co(NiO2)4",
+"charged": "Co(NiO2)4",
+"ion": "Li",
+"pred": 3.684062269056076,
+"dist": 2.6277951556423433,
+"named": false
+},
+{
+"discharged": "CaCo(SiO3)2",
+"charged": "Co(SiO3)2",
+"ion": "Ca",
+"pred": 4.327044348133538,
+"dist": 42.75199335037117,
+"named": false
+},
+{
+"discharged": "MgCo(SiO3)2",
+"charged": "Co(SiO3)2",
+"ion": "Mg",
+"pred": 4.435630064836203,
+"dist": 52.62336825785669,
+"named": false
+},
+{
+"discharged": "Li3Co3(PO4)4",
+"charged": "Co3(PO4)4",
+"ion": "Li",
+"pred": 5.016937606884762,
+"dist": 1.332969110305613,
+"named": false
+},
+{
+"discharged": "Li2Co3BiO8",
+"charged": "Co3BiO8",
+"ion": "Li",
+"pred": 4.217054992347778,
+"dist": 10.620544857317947,
+"named": false
+},
+{
+"discharged": "CaCo4(CuO4)3",
+"charged": "Co4(CuO4)3",
+"ion": "Ca",
+"pred": 4.06653457554625,
+"dist": 21.984955608549033,
+"named": false
+},
+{
+"discharged": "YCo4(CuO4)3",
+"charged": "Co4(CuO4)3",
+"ion": "Y",
+"pred": 4.242578638364149,
+"dist": 24.78412417475608,
+"named": false
+},
+{
+"discharged": "Li4Co5Te3O16",
+"charged": "Co5Te3O16",
+"ion": "Li",
+"pred": 3.6113111626730676,
+"dist": 2.611847190509342,
+"named": false
+},
+{
+"discharged": "Li5Co7O12",
+"charged": "Co7O12",
+"ion": "Li",
+"pred": 3.5485182651462943,
+"dist": 2.0847159349149553,
+"named": false
+},
+{
+"discharged": "Li(CoO2)2",
+"charged": "CoO2",
+"ion": "Li",
+"pred": 4.029303744968788,
+"dist": 2.15276366896098,
+"named": false
+},
+{
+"discharged": "CaCoP2O7",
+"charged": "CoP2O7",
+"ion": "Ca",
+"pred": 3.5797015752633166,
+"dist": 42.56523655273219,
+"named": false
+},
+{
+"discharged": "ZnCr(SiO3)2",
+"charged": "Cr(SiO3)2",
+"ion": "Zn",
+"pred": 4.068551487166154,
+"dist": 44.75208654088556,
+"named": false
+},
+{
+"discharged": "Li4Cr3Co3(SbO8)2",
+"charged": "Cr3Co3(SbO8)2",
+"ion": "Li",
+"pred": 4.029482202886042,
+"dist": 2.9004022169705106,
+"named": false
+},
+{
+"discharged": "LiCr3P3O13",
+"charged": "Cr3P3O13",
+"ion": "Li",
+"pred": 4.5114521837503005,
+"dist": 0.9989628972642901,
+"named": false
+},
+{
+"discharged": "ZnCr3P3O13",
+"charged": "Cr3P3O13",
+"ion": "Zn",
+"pred": 4.205818285632155,
+"dist": 44.45322768311083,
+"named": false
+},
+{
+"discharged": "ZnCrAsO5",
+"charged": "CrAsO5",
+"ion": "Zn",
+"pred": 4.221249416419435,
+"dist": 44.92675678931395,
+"named": false
+},
+{
+"discharged": "Li4CrCo3(PO4)4",
+"charged": "CrCo3(PO4)4",
+"ion": "Li",
+"pred": 3.8384328147551696,
+"dist": 1.849346395770483,
+"named": false
+},
+{
+"discharged": "Li2CrF4",
+"charged": "CrF4",
+"ion": "Li",
+"pred": 4.072190583630892,
+"dist": 5.42738548819723,
+"named": false
+},
+{
+"discharged": "Cs2CrF6",
+"charged": "CrF6",
+"ion": "Cs",
+"pred": 4.160339555058018,
+"dist": 33.70946666425918,
+"named": false
+},
+{
+"discharged": "YCr3O6",
+"charged": "CrO2",
+"ion": "Y",
+"pred": 3.191142362416561,
+"dist": 25.015339654280275,
+"named": false
+},
+{
+"discharged": "Li2CrP2O7",
+"charged": "CrP2O7",
+"ion": "Li",
+"pred": 3.768977246978781,
+"dist": 1.8095550503696554,
+"named": false
+},
+{
+"discharged": "CaCr2(PO4)2",
+"charged": "CrPO4",
+"ion": "Ca",
+"pred": 2.772662111180847,
+"dist": 20.954916402502143,
+"named": false
+},
+{
+"discharged": "Ca(CrS2)2",
+"charged": "CrS2",
+"ion": "Ca",
+"pred": 2.291224301943617,
+"dist": 51.906451841682056,
+"named": false
+},
+{
+"discharged": "LiCrS2",
+"charged": "CrS2",
+"ion": "Li",
+"pred": 2.1169646586658746,
+"dist": 6.732537013708017,
+"named": false
+},
+{
+"discharged": "Zn(CrS2)2",
+"charged": "CrS2",
+"ion": "Zn",
+"pred": 2.1236422759292797,
+"dist": 65.18239953150113,
+"named": false
+},
+{
+"discharged": "ZnCu4(SnSe4)2",
+"charged": "Cu2SnSe4",
+"ion": "Zn",
+"pred": 1.9165343877622294,
+"dist": 119.36799013479477,
+"named": false
+},
+{
+"discharged": "CaCu3(NiO3)4",
+"charged": "Cu3(NiO3)4",
+"ion": "Ca",
+"pred": 4.417535722474848,
+"dist": 22.075129815235737,
+"named": false
+},
+{
+"discharged": "LiFe(CoO3)2",
+"charged": "Fe(CoO3)2",
+"ion": "Li",
+"pred": 4.430838016751563,
+"dist": 1.0039045551720982,
+"named": false
+},
+{
+"discharged": "ZnFe(GeO3)2",
+"charged": "Fe(GeO3)2",
+"ion": "Zn",
+"pred": 4.658452479976221,
+"dist": 61.34735041818624,
+"named": false
+},
+{
+"discharged": "Ca3Fe4(WO4)6",
+"charged": "Fe2(WO4)3",
+"ion": "Ca",
+"pred": 3.266180308351514,
+"dist": 43.43413718464628,
+"named": false
+},
+{
+"discharged": "LiFe2C2O7",
+"charged": "Fe2C2O7",
+"ion": "Li",
+"pred": 3.2363227535464554,
+"dist": 2.664318414311773,
+"named": false
+},
+{
+"discharged": "CaFe2P2O9",
+"charged": "Fe2P2O9",
+"ion": "Ca",
+"pred": 3.8852381147951625,
+"dist": 42.49062387530047,
+"named": false
+},
+{
+"discharged": "LiFe7(OF3)3",
+"charged": "Fe7(OF3)3",
+"ion": "Li",
+"pred": 2.941003162982783,
+"dist": 2.521601309763768,
+"named": false
+},
+{
+"discharged": "Li4FeCu3(PO4)4",
+"charged": "FeCu3(PO4)4",
+"ion": "Li",
+"pred": 4.039064177899919,
+"dist": 2.398249550741429,
+"named": false
+},
+{
+"discharged": "LiFeH12(SO7)2",
+"charged": "FeH12(SO7)2",
+"ion": "Li",
+"pred": 4.013505765329191,
+"dist": 4.28383258977191,
+"named": false
+},
+{
+"discharged": "Ca(FeO2)4",
+"charged": "FeO2",
+"ion": "Ca",
+"pred": 4.061380675793648,
+"dist": 42.62869968587801,
+"named": false
+},
+{
+"discharged": "LiFePO4F",
+"charged": "FePO4F",
+"ion": "Li",
+"pred": 4.575741369410863,
+"dist": 5.80389249661779,
+"named": false
+},
+{
+"discharged": "LiFe2(PO4)2",
+"charged": "FePO4",
+"ion": "Li",
+"pred": 3.6199675477644866,
+"dist": 0.9066550799697797,
+"named": false
+},
+{
+"discharged": "LiFePO4",
+"charged": "FePO4",
+"ion": "Li",
+"pred": 3.501437782779921,
+"dist": 1.155571072175141,
+"named": true
+},
+{
+"discharged": "Na3Ge3(MoO6)2",
+"charged": "Ge3(MoO6)2",
+"ion": "Na",
+"pred": 3.438360057456315,
+"dist": 19.866937755409474,
+"named": false
+},
+{
+"discharged": "CaHoV2O6",
+"charged": "HoV2O6",
+"ion": "Ca",
+"pred": 2.085846350929729,
+"dist": 48.87848493473996,
+"named": false
+},
+{
+"discharged": "K2Li3CoO4",
+"charged": "K2Li2CoO4",
+"ion": "Li",
+"pred": 2.5848842461422987,
+"dist": 2.6732975274353925,
+"named": false
+},
+{
+"discharged": "K2Li3NiO4",
+"charged": "K2Li2NiO4",
+"ion": "Li",
+"pred": 3.1558057600560607,
+"dist": 4.161310627460226,
+"named": false
+},
+{
+"discharged": "K2Li3MnO4",
+"charged": "K8Li9Mn4O16",
+"ion": "Li",
+"pred": 1.7829717032264911,
+"dist": 2.225894602690503,
+"named": false
+},
+{
+"discharged": "K2CrPCO7",
+"charged": "KCrPCO7",
+"ion": "K",
+"pred": 2.8411378376492236,
+"dist": 13.581647333770352,
+"named": false
+},
+{
+"discharged": "CaLa2MoO6",
+"charged": "La2MoO6",
+"ion": "Ca",
+"pred": 3.4764643545456937,
+"dist": 21.313457190446705,
+"named": false
+},
+{
+"discharged": "La2ZnMoO6",
+"charged": "La2MoO6",
+"ion": "Zn",
+"pred": 2.8355543721692102,
+"dist": 23.444706950240608,
+"named": false
+},
+{
+"discharged": "LiLa6Mn3O14",
+"charged": "La6Mn3O14",
+"ion": "Li",
+"pred": 3.305913238398581,
+"dist": 2.628138458819007,
+"named": false
+},
+{
+"discharged": "LaZnFeWO6",
+"charged": "LaFeWO6",
+"ion": "Zn",
+"pred": 2.563531258634548,
+"dist": 45.17776176748605,
+"named": false
+},
+{
+"discharged": "Li(NiO2)2",
+"charged": "Li(NiO2)3",
+"ion": "Li",
+"pred": 3.9108065760237043,
+"dist": 1.6376099369357369,
+"named": false
+},
+{
+"discharged": "Li5TiMn3O8",
+"charged": "Li11Ti4Mn12O32",
+"ion": "Li",
+"pred": 1.9235324751975613,
+"dist": 1.7633579354388231,
+"named": false
+},
+{
+"discharged": "Li4(FeO2)5",
+"charged": "Li2(FeO2)5",
+"ion": "Li",
+"pred": 4.084194309138965,
+"dist": 1.2874803590278625,
+"named": false
+},
+{
+"discharged": "Li3Cr(FeO3)2",
+"charged": "Li2Cr(FeO3)2",
+"ion": "Li",
+"pred": 3.7368448072541347,
+"dist": 0.9697286873488269,
+"named": false
+},
+{
+"discharged": "Li4Cr3(CoO4)3",
+"charged": "Li2Cr3(CoO4)3",
+"ion": "Li",
+"pred": 3.6163019793609883,
+"dist": 1.8576572620466174,
+"named": false
+},
+{
+"discharged": "Li4Cr3FeO8",
+"charged": "Li2Cr3FeO8",
+"ion": "Li",
+"pred": 3.244990712552671,
+"dist": 1.2732778420880657,
+"named": false
+},
+{
+"discharged": "LiCrO2",
+"charged": "Li2Cr3O6",
+"ion": "Li",
+"pred": 3.4444067174263973,
+"dist": 1.187977818317062,
+"named": false
+},
+{
+"discharged": "Li3Fe(NiO3)2",
+"charged": "Li2Fe(NiO3)2",
+"ion": "Li",
+"pred": 3.704598277917115,
+"dist": 0.6919748624143569,
+"named": false
+},
+{
+"discharged": "Li4MgCo3O8",
+"charged": "Li2MgCo3O8",
+"ion": "Li",
+"pred": 3.3303572549304126,
+"dist": 3.587283155020656,
+"named": false
+},
+{
+"discharged": "Li3Mn2NiO6",
+"charged": "Li2Mn2NiO6",
+"ion": "Li",
+"pred": 3.1516127313829383,
+"dist": 1.0634961068734712,
+"named": false
+},
+{
+"discharged": "Li3Mn3CoO8",
+"charged": "Li2Mn3CoO8",
+"ion": "Li",
+"pred": 2.533410301501286,
+"dist": 1.3313757854769614,
+"named": false
+},
+{
+"discharged": "Li3MnBPO7",
+"charged": "Li2MnBPO7",
+"ion": "Li",
+"pred": 3.7342414390175596,
+"dist": 3.3864990798848296,
+"named": false
+},
+{
+"discharged": "LiNiBO3",
+"charged": "Li2Ni3(BO3)3",
+"ion": "Li",
+"pred": 4.439799843325656,
+"dist": 4.295888426616474,
+"named": false
+},
+{
+"discharged": "Li4Ni5O9",
+"charged": "Li2Ni5O9",
+"ion": "Li",
+"pred": 3.651192816002044,
+"dist": 1.0655624876968208,
+"named": false
+},
+{
+"discharged": "Li4VGa3O8",
+"charged": "Li2VGa3O8",
+"ion": "Li",
+"pred": 2.8728762171259885,
+"dist": 5.835816214272685,
+"named": false
+},
+{
+"discharged": "Li2FeO3",
+"charged": "Li3(FeO3)2",
+"ion": "Li",
+"pred": 3.634647547551701,
+"dist": 1.6938637142682125,
+"named": false
+},
+{
+"discharged": "Li3Cr2(PO4)3",
+"charged": "Li3Cr4(PO4)6",
+"ion": "Li",
+"pred": 3.9715464051827998,
+"dist": 1.1750616974169916,
+"named": false
+},
+{
+"discharged": "Li4CrFe3O8",
+"charged": "Li3CrFe3O8",
+"ion": "Li",
+"pred": 3.550533428551869,
+"dist": 1.3473237614358256,
+"named": false
+},
+{
+"discharged": "Li4Cu3TeO8",
+"charged": "Li3Cu3TeO8",
+"ion": "Li",
+"pred": 2.976431263731358,
+"dist": 4.637159936339513,
+"named": false
+},
+{
+"discharged": "Li4Fe2(PO4)3",
+"charged": "Li3Fe2(PO4)3",
+"ion": "Li",
+"pred": 2.867422310643424,
+"dist": 1.0971631145831917,
+"named": false
+},
+{
+"discharged": "Li2FePO4F",
+"charged": "Li3Fe2P2(O4F)2",
+"ion": "Li",
+"pred": 3.1370175464878005,
+"dist": 3.019865734110474,
+"named": false
+},
+{
+"discharged": "Li4Fe3CoO8",
+"charged": "Li3Fe3CoO8",
+"ion": "Li",
+"pred": 3.4259668388049636,
+"dist": 0.6282916151718283,
+"named": false
+},
+{
+"discharged": "Li4Fe3CuO8",
+"charged": "Li3Fe3CuO8",
+"ion": "Li",
+"pred": 3.639885455773256,
+"dist": 1.5946448489429652,
+"named": false
+},
+{
+"discharged": "Li4La5Ti6Nb2O26",
+"charged": "Li3La5Ti6Nb2O26",
+"ion": "Li",
+"pred": 2.0428815751233538,
+"dist": 3.5827078262524763,
+"named": false
+},
+{
+"discharged": "Li5Mn(CO3)4",
+"charged": "Li3Mn(CO3)4",
+"ion": "Li",
+"pred": 4.210922602494452,
+"dist": 2.213764044422423,
+"named": false
+},
+{
+"discharged": "Li6Mn3(PO4)4",
+"charged": "Li3Mn3(PO4)4",
+"ion": "Li",
+"pred": 3.320133574534767,
+"dist": 1.0964082998356317,
+"named": false
+},
+{
+"discharged": "Li4Mn3FeO8",
+"charged": "Li3Mn3FeO8",
+"ion": "Li",
+"pred": 2.025920516315582,
+"dist": 1.0631600004768562,
+"named": false
+},
+{
+"discharged": "Li4MnCr3O8",
+"charged": "Li3MnCr3O8",
+"ion": "Li",
+"pred": 2.893028631280228,
+"dist": 1.0046647564266966,
+"named": false
+},
+{
+"discharged": "Li4MnCu3O8",
+"charged": "Li3MnCu3O8",
+"ion": "Li",
+"pred": 3.6224199648983997,
+"dist": 3.3133551177937988,
+"named": false
+},
+{
+"discharged": "Li4NbV3O8",
+"charged": "Li3NbV3O8",
+"ion": "Li",
+"pred": 1.659377512797081,
+"dist": 2.8108914616889544,
+"named": false
+},
+{
+"discharged": "Li4TiFe3O8",
+"charged": "Li3TiFe3O8",
+"ion": "Li",
+"pred": 2.7312467520055597,
+"dist": 1.1070615970150455,
+"named": false
+},
+{
+"discharged": "Li4V5Cr2O12",
+"charged": "Li3V5Cr2O12",
+"ion": "Li",
+"pred": 2.404244871185381,
+"dist": 1.2555968845736156,
+"named": false
+},
+{
+"discharged": "Li4V5O12",
+"charged": "Li3V5O12",
+"ion": "Li",
+"pred": 2.556433492749483,
+"dist": 1.401274077828023,
+"named": false
+},
+{
+"discharged": "Li5V5O12",
+"charged": "Li3V5O12",
+"ion": "Li",
+"pred": 2.6829011844598356,
+"dist": 1.505979261733756,
+"named": false
+},
+{
+"discharged": "Li4ZrNb(TeO6)2",
+"charged": "Li3ZrNb(TeO6)2",
+"ion": "Li",
+"pred": 2.663652809563033,
+"dist": 4.721326109359869,
+"named": false
+},
+{
+"discharged": "Li5Co7O16",
+"charged": "Li4Co7O16",
+"ion": "Li",
+"pred": 4.043727457598754,
+"dist": 1.4323875992974453,
+"named": false
+},
+{
+"discharged": "Li5Fe2Cu3O10",
+"charged": "Li4Fe2Cu3O10",
+"ion": "Li",
+"pred": 3.9000478033582575,
+"dist": 1.6157298308715358,
+"named": false
+},
+{
+"discharged": "Li10Fe3Co3(NiO8)2",
+"charged": "Li4Fe3Co3(NiO8)2",
+"ion": "Li",
+"pred": 2.9094516211440573,
+"dist": 1.063214059243582,
+"named": false
+},
+{
+"discharged": "Li6Fe5SbO12",
+"charged": "Li4Fe5SbO12",
+"ion": "Li",
+"pred": 3.425963073046,
+"dist": 2.5888242044644785,
+"named": false
+},
+{
+"discharged": "Li5Mn2Co3O10",
+"charged": "Li4Mn2Co3O10",
+"ion": "Li",
+"pred": 2.950280537841651,
+"dist": 1.2727399067953429,
+"named": false
+},
+{
+"discharged": "Li2MnCrO4",
+"charged": "Li4Mn3Cr3O12",
+"ion": "Li",
+"pred": 3.0206305353409264,
+"dist": 0.734944866771715,
+"named": false
+},
+{
+"discharged": "Li10Mn3Cr5O16",
+"charged": "Li4Mn3Cr5O16",
+"ion": "Li",
+"pred": 2.209502064225027,
+"dist": 1.3469500703817423,
+"named": false
+},
+{
+"discharged": "Li5Ni2(PO4)3",
+"charged": "Li4Ni2(PO4)3",
+"ion": "Li",
+"pred": 3.9901591301501127,
+"dist": 2.012880952514638,
+"named": false
+},
+{
+"discharged": "Li5Ti2Fe5O12",
+"charged": "Li4Ti2Fe5O12",
+"ion": "Li",
+"pred": 2.565641702553242,
+"dist": 1.4847056735186945,
+"named": false
+},
+{
+"discharged": "Li2TiFeO4",
+"charged": "Li4Ti3(FeO4)3",
+"ion": "Li",
+"pred": 2.3869896141576468,
+"dist": 1.2370925925559386,
+"named": false
+},
+{
+"discharged": "Li5V(CO3)4",
+"charged": "Li4V(CO3)4",
+"ion": "Li",
+"pred": 3.5516720591633604,
+"dist": 2.2245114707056657,
+"named": false
+},
+{
+"discharged": "Li10V5Cr3O16",
+"charged": "Li4V5Cr3O16",
+"ion": "Li",
+"pred": 1.6248256275068926,
+"dist": 0.9864451576678455,
+"named": false
+},
+{
+"discharged": "Li11Mn12(BO3)12",
+"charged": "Li5Mn6(BO3)6",
+"ion": "Li",
+"pred": 3.5332157531597232,
+"dist": 0.6581345283263264,
+"named": false
+},
+{
+"discharged": "Li6V5O12",
+"charged": "Li5V5O12",
+"ion": "Li",
+"pred": 2.6146484598557156,
+"dist": 1.289964794004038,
+"named": false
+},
+{
+"discharged": "Li7CrO6",
+"charged": "Li6CrO6",
+"ion": "Li",
+"pred": 3.1381003631725255,
+"dist": 4.663233599178524,
+"named": false
+},
+{
+"discharged": "Li7Fe5O12",
+"charged": "Li6Fe5O12",
+"ion": "Li",
+"pred": 3.8022102004029423,
+"dist": 1.1892118369493043,
+"named": false
+},
+{
+"discharged": "Li13Mn17O40",
+"charged": "Li6Mn17O40",
+"ion": "Li",
+"pred": 4.061594004394359,
+"dist": 1.0722237332240512,
+"named": false
+},
+{
+"discharged": "Li7MnCo3(PO4)6",
+"charged": "Li6MnCo3(PO4)6",
+"ion": "Li",
+"pred": 3.2693315525259212,
+"dist": 1.7524071163019777,
+"named": false
+},
+{
+"discharged": "Li8NbO6",
+"charged": "Li7NbO6",
+"ion": "Li",
+"pred": 0.3714157302367899,
+"dist": 5.419954452536499,
+"named": false
+},
+{
+"discharged": "Li10FeNi9O20",
+"charged": "Li8FeNi9O20",
+"ion": "Li",
+"pred": 3.620787467792718,
+"dist": 1.0913437333746752,
+"named": false
+},
+{
+"discharged": "Li9TiMn3(PO4)6",
+"charged": "Li8TiMn3(PO4)6",
+"ion": "Li",
+"pred": 1.2123229599377219,
+"dist": 1.8044953721708232,
+"named": false
+},
+{
+"discharged": "Li2Bi(PO4)2",
+"charged": "LiBi(PO4)2",
+"ion": "Li",
+"pred": 4.740122080038427,
+"dist": 2.1222674394005487,
+"named": false
+},
+{
+"discharged": "LiCo(CO3)2",
+"charged": "LiCo2(CO3)4",
+"ion": "Li",
+"pred": 4.689261543667149,
+"dist": 2.154966044853303,
+"named": false
+},
+{
+"discharged": "LiCoPO4",
+"charged": "LiCo2(PO4)2",
+"ion": "Li",
+"pred": 4.308451760079011,
+"dist": 2.007045470330425,
+"named": false
+},
+{
+"discharged": "Li2Cr(SO4)2",
+"charged": "LiCr(SO4)2",
+"ion": "Li",
+"pred": 3.357325159296551,
+"dist": 2.8788138005398123,
+"named": false
+},
+{
+"discharged": "Li2Cr(Si2O5)3",
+"charged": "LiCr(Si2O5)3",
+"ion": "Li",
+"pred": 4.402517663624805,
+"dist": 2.33531909432278,
+"named": false
+},
+{
+"discharged": "LiCr(CO3)2",
+"charged": "LiCr2(CO3)4",
+"ion": "Li",
+"pred": 4.20398122284708,
+"dist": 2.3087338597971203,
+"named": false
+},
+{
+"discharged": "Li3Cr2(PS4)3",
+"charged": "LiCr2(PS4)3",
+"ion": "Li",
+"pred": 2.38106030664419,
+"dist": 7.331600497642339,
+"named": false
+},
+{
+"discharged": "Li2CrCSO7",
+"charged": "LiCrCSO7",
+"ion": "Li",
+"pred": 3.1145354950945388,
+"dist": 2.5403723319474034,
+"named": false
+},
+{
+"discharged": "Li3CrCo3O8",
+"charged": "LiCrCo3O8",
+"ion": "Li",
+"pred": 3.634347671262839,
+"dist": 2.2488661667854952,
+"named": false
+},
+{
+"discharged": "Li2CuPCO7",
+"charged": "LiCuPCO7",
+"ion": "Li",
+"pred": 4.449728409850859,
+"dist": 3.0816393773200006,
+"named": false
+},
+{
+"discharged": "Li2Fe(Si2O5)3",
+"charged": "LiFe(Si2O5)3",
+"ion": "Li",
+"pred": 4.771529527502436,
+"dist": 3.6703336934715423,
+"named": false
+},
+{
+"discharged": "Li5Fe8(BO3)8",
+"charged": "LiFe2(BO3)2",
+"ion": "Li",
+"pred": 2.867835613647649,
+"dist": 1.311814783785309,
+"named": false
+},
+{
+"discharged": "LiFe(CO3)2",
+"charged": "LiFe2(CO3)4",
+"ion": "Li",
+"pred": 4.603273108583016,
+"dist": 2.1799383748602668,
+"named": false
+},
+{
+"discharged": "Li3Fe4(PO4)6",
+"charged": "LiFe2(PO4)3",
+"ion": "Li",
+"pred": 5.04042498545411,
+"dist": 1.3898988917067236,
+"named": false
+},
+{
+"discharged": "Li2FeO3",
+"charged": "LiFeO3",
+"ion": "Li",
+"pred": 3.8305947313746986,
+"dist": 1.4650160320279748,
+"named": false
+},
+{
+"discharged": "Li2FeP4O13",
+"charged": "LiFeP4O13",
+"ion": "Li",
+"pred": 5.095502679223325,
+"dist": 1.6756715299938574,
+"named": false
+},
+{
+"discharged": "Li3Mn2(CO3)4",
+"charged": "LiMn(CO3)2",
+"ion": "Li",
+"pred": 3.433794236548658,
+"dist": 2.0185602715980036,
+"named": false
+},
+{
+"discharged": "Li2Mn5(CuO6)2",
+"charged": "LiMn5(CuO6)2",
+"ion": "Li",
+"pred": 3.4837458437556723,
+"dist": 2.65461466049015,
+"named": false
+},
+{
+"discharged": "Li2Nb(PO4)2",
+"charged": "LiNb(PO4)2",
+"ion": "Li",
+"pred": 2.5395937293660045,
+"dist": 1.6607824777444609,
+"named": false
+},
+{
+"discharged": "Li2Ni(PO3)5",
+"charged": "LiNi(PO3)5",
+"ion": "Li",
+"pred": 5.597601767374379,
+"dist": 2.239429141178526,
+"named": false
+},
+{
+"discharged": "LiNiPO4",
+"charged": "LiNi2(PO4)2",
+"ion": "Li",
+"pred": 4.783997266869342,
+"dist": 2.181741481840981,
+"named": false
+},
+{
+"discharged": "Li2NiH12(SO7)2",
+"charged": "LiNiH12(SO7)2",
+"ion": "Li",
+"pred": 4.445338411910063,
+"dist": 4.18884297066641,
+"named": false
+},
+{
+"discharged": "Li3Sn2(PO4)3",
+"charged": "LiSn2(PO4)3",
+"ion": "Li",
+"pred": 2.8602762206913024,
+"dist": 2.1703078406187575,
+"named": false
+},
+{
+"discharged": "Li2Ti2(PO4)3",
+"charged": "LiTi2(PO4)3",
+"ion": "Li",
+"pred": 2.057683897013995,
+"dist": 1.92041927762035,
+"named": false
+},
+{
+"discharged": "LiTiO2",
+"charged": "LiTi2O4",
+"ion": "Li",
+"pred": 1.3715527946558255,
+"dist": 1.3402476890902688,
+"named": false
+},
+{
+"discharged": "LiTi4O8",
+"charged": "LiTi6O12",
+"ion": "Li",
+"pred": 1.7908968285917384,
+"dist": 1.2798192582101175,
+"named": false
+},
+{
+"discharged": "Li2TiFeO4",
+"charged": "LiTiFeO4",
+"ion": "Li",
+"pred": 2.438065176511291,
+"dist": 1.5497593463042478,
+"named": false
+},
+{
+"discharged": "Li2TiNiO4",
+"charged": "LiTiNiO4",
+"ion": "Li",
+"pred": 3.0971388714912336,
+"dist": 1.9108924511339065,
+"named": false
+},
+{
+"discharged": "Li3TiV3O8",
+"charged": "LiTiV3O8",
+"ion": "Li",
+"pred": 2.5690772720867217,
+"dist": 1.2467668160677605,
+"named": false
+},
+{
+"discharged": "Li2VCrO4",
+"charged": "LiVCrO4",
+"ion": "Li",
+"pred": 2.638978413736258,
+"dist": 0.9944290361617663,
+"named": false
+},
+{
+"discharged": "Li3V2(SiO5)2",
+"charged": "LiVSiO5",
+"ion": "Li",
+"pred": 3.1980799358033223,
+"dist": 1.7950415394632084,
+"named": false
+},
+{
+"discharged": "Li2ZnCr3(SO4)6",
+"charged": "LiZnCr3(SO4)6",
+"ion": "Li",
+"pred": 2.9605535210882907,
+"dist": 4.172580301485944,
+"named": false
+},
+{
+"discharged": "KLu(NbCl3)6",
+"charged": "Lu(NbCl3)6",
+"ion": "K",
+"pred": 2.1136340669669824,
+"dist": 59.7541350158016,
+"named": false
+},
+{
+"discharged": "Li3Mg(NiO2)4",
+"charged": "Mg(NiO2)4",
+"ion": "Li",
+"pred": 3.765233550876136,
+"dist": 6.182991993586542,
+"named": false
+},
+{
+"discharged": "Mg2VBiO6",
+"charged": "Mg3V2(BiO6)2",
+"ion": "Mg",
+"pred": 2.6891006644643776,
+"dist": 51.03274041592262,
+"named": false
+},
+{
+"discharged": "Mg2Mo3O8",
+"charged": "MgMo3O8",
+"ion": "Mg",
+"pred": 2.845103563636032,
+"dist": 34.81477472641218,
+"named": false
+},
+{
+"discharged": "LiMgSbPt",
+"charged": "MgSbPt",
+"ion": "Li",
+"pred": 0.42055007478584044,
+"dist": 19.08670822453777,
+"named": false
+},
+{
+"discharged": "Mg3Sn",
+"charged": "MgSn",
+"ion": "Mg",
+"pred": 0.32102658889667235,
+"dist": 71.6396978201179,
+"named": false
+},
+{
+"discharged": "MgVO3",
+"charged": "MgV2O6",
+"ion": "Mg",
+"pred": 2.477388163995594,
+"dist": 49.78304851040501,
+"named": false
+},
+{
+"discharged": "LiMn(CO3)2",
+"charged": "Mn(CO3)2",
+"ion": "Li",
+"pred": 4.212535649437433,
+"dist": 4.045300309059675,
+"named": false
+},
+{
+"discharged": "CaMn(Si2O5)2",
+"charged": "Mn(Si2O5)2",
+"ion": "Ca",
+"pred": 3.851811736247906,
+"dist": 42.65540705457387,
+"named": false
+},
+{
+"discharged": "MgMn(Si2O5)2",
+"charged": "Mn(Si2O5)2",
+"ion": "Mg",
+"pred": 4.341024089376227,
+"dist": 51.11783813884611,
+"named": false
+},
+{
+"discharged": "MnZn(Si2O5)2",
+"charged": "Mn(Si2O5)2",
+"ion": "Zn",
+"pred": 4.496285573336082,
+"dist": 57.61937478759531,
+"named": false
+},
+{
+"discharged": "Na9Mn15O32",
+"charged": "Mn15O32",
+"ion": "Na",
+"pred": 2.9509451100839668,
+"dist": 19.41930956399817,
+"named": false
+},
+{
+"discharged": "CaMn2Be3(SiO4)3",
+"charged": "Mn2Be3(SiO4)3",
+"ion": "Ca",
+"pred": 3.779913425075336,
+"dist": 38.64771898549781,
+"named": false
+},
+{
+"discharged": "Li2Mn2Ni(PO4)3",
+"charged": "Mn2Ni(PO4)3",
+"ion": "Li",
+"pred": 3.845644403108664,
+"dist": 1.06721925156987,
+"named": false
+},
+{
+"discharged": "LiMn2P3O11",
+"charged": "Mn2P3O11",
+"ion": "Li",
+"pred": 4.634779387914391,
+"dist": 0.8822580535339467,
+"named": false
+},
+{
+"discharged": "Li6Mn3Co(PO4)6",
+"charged": "Mn3Co(PO4)6",
+"ion": "Li",
+"pred": 4.50211750986785,
+"dist": 1.7910191829515116,
+"named": false
+},
+{
+"discharged": "Li4Mn3Co3(SnO8)2",
+"charged": "Mn3Co3(SnO8)2",
+"ion": "Li",
+"pred": 3.9545319095420868,
+"dist": 2.6856639434769614,
+"named": false
+},
+{
+"discharged": "Li4Mn3Fe(PO4)4",
+"charged": "Mn3Fe(PO4)4",
+"ion": "Li",
+"pred": 3.541970800697535,
+"dist": 1.1960829051483028,
+"named": false
+},
+{
+"discharged": "Li6Mn3Nb(PO4)6",
+"charged": "Mn3Nb(PO4)6",
+"ion": "Li",
+"pred": 3.760021494918307,
+"dist": 1.862203915259324,
+"named": false
+},
+{
+"discharged": "Li4Mn3Nb2Fe3O16",
+"charged": "Mn3Nb2Fe3O16",
+"ion": "Li",
+"pred": 3.7570468248406317,
+"dist": 2.887390065399638,
+"named": false
+},
+{
+"discharged": "MgMn3P3O13",
+"charged": "Mn3P3O13",
+"ion": "Mg",
+"pred": 4.340577255105131,
+"dist": 50.8974008510661,
+"named": false
+},
+{
+"discharged": "Li2Mn3SbO8",
+"charged": "Mn3SbO8",
+"ion": "Li",
+"pred": 3.948078951620018,
+"dist": 2.3312060276644795,
+"named": false
+},
+{
+"discharged": "Li2Mn3Si3O10",
+"charged": "Mn3Si3O10",
+"ion": "Li",
+"pred": 3.3367170490570763,
+"dist": 1.5265943664070338,
+"named": false
+},
+{
+"discharged": "Li2Mn3SnO8",
+"charged": "Mn3SnO8",
+"ion": "Li",
+"pred": 3.848179152451743,
+"dist": 2.5656519542334593,
+"named": false
+},
+{
+"discharged": "Li2Mn3TeO8",
+"charged": "Mn3TeO8",
+"ion": "Li",
+"pred": 3.8959750539460942,
+"dist": 2.268118839894656,
+"named": false
+},
+{
+"discharged": "RbMn4(PO4)3",
+"charged": "Mn4(PO4)3",
+"ion": "Rb",
+"pred": 3.125216630024779,
+"dist": 23.456129757452636,
+"named": false
+},
+{
+"discharged": "Li4Mn5O9F",
+"charged": "Mn5O9F",
+"ion": "Li",
+"pred": 3.46511796282406,
+"dist": 4.4585210998891665,
+"named": false
+},
+{
+"discharged": "Li4MnCr3(PO4)4",
+"charged": "MnCr3(PO4)4",
+"ion": "Li",
+"pred": 3.207595308072902,
+"dist": 1.2713506003082844,
+"named": false
+},
+{
+"discharged": "Li2MnCu(PO4)2",
+"charged": "MnCu(PO4)2",
+"ion": "Li",
+"pred": 4.008339216697463,
+"dist": 1.9007268691031964,
+"named": false
+},
+{
+"discharged": "Li4Mn3Fe3(PO4)6",
+"charged": "MnFe(PO4)2",
+"ion": "Li",
+"pred": 3.5134866681135457,
+"dist": 1.0575065223599416,
+"named": false
+},
+{
+"discharged": "Li4MnFe3(PO4)4",
+"charged": "MnFe3(PO4)4",
+"ion": "Li",
+"pred": 3.500401755865411,
+"dist": 1.0158885174216603,
+"named": false
+},
+{
+"discharged": "Li3MnFeCo(PO4)3",
+"charged": "MnFeCo(PO4)3",
+"ion": "Li",
+"pred": 3.756756369625201,
+"dist": 1.1921573375218562,
+"named": false
+},
+{
+"discharged": "LiMnH8(SO6)2",
+"charged": "MnH8(SO6)2",
+"ion": "Li",
+"pred": 4.28447826267721,
+"dist": 4.3034598361711165,
+"named": false
+},
+{
+"discharged": "Li2MnNi(PO4)2",
+"charged": "MnNi(PO4)2",
+"ion": "Li",
+"pred": 3.9242569269238525,
+"dist": 1.1774699714978378,
+"named": false
+},
+{
+"discharged": "Rb3Mn16O32",
+"charged": "MnO2",
+"ion": "Rb",
+"pred": 3.9719026687779664,
+"dist": 23.787757276383687,
+"named": false
+},
+{
+"discharged": "KMo2P3O13",
+"charged": "Mo2P3O13",
+"ion": "K",
+"pred": 2.8420747602618066,
+"dist": 21.699574444358138,
+"named": false
+},
+{
+"discharged": "CaMo3P3O13",
+"charged": "Mo3P3O13",
+"ion": "Ca",
+"pred": 2.7869375052234675,
+"dist": 20.83273994447738,
+"named": false
+},
+{
+"discharged": "NaMo3P3O13",
+"charged": "Mo3P3O13",
+"ion": "Na",
+"pred": 3.075241929571873,
+"dist": 19.268443133010866,
+"named": false
+},
+{
+"discharged": "Y(Mo3S4)2",
+"charged": "Mo3S4",
+"ion": "Y",
+"pred": 1.7406206775595658,
+"dist": 53.460485508004886,
+"named": false
+},
+{
+"discharged": "Li3Mo4P5O24",
+"charged": "Mo4P5O24",
+"ion": "Li",
+"pred": 3.7460944588976344,
+"dist": 1.420863748610333,
+"named": false
+},
+{
+"discharged": "LiMoP4O13",
+"charged": "MoP4O13",
+"ion": "Li",
+"pred": 5.455072495816568,
+"dist": 1.4402085578718178,
+"named": false
+},
+{
+"discharged": "ZnMo2(PO5)2",
+"charged": "MoPO5",
+"ion": "Zn",
+"pred": 3.808951776571308,
+"dist": 44.75335170676468,
+"named": false
+},
+{
+"discharged": "Na3CoAsCO7",
+"charged": "Na2CoAsCO7",
+"ion": "Na",
+"pred": 2.975448050549895,
+"dist": 12.938514341959026,
+"named": false
+},
+{
+"discharged": "Na3CoBAsO7",
+"charged": "Na2CoBAsO7",
+"ion": "Na",
+"pred": 2.9718278630528197,
+"dist": 10.807500574892597,
+"named": false
+},
+{
+"discharged": "Na3FeBPO7",
+"charged": "Na2FeBPO7",
+"ion": "Na",
+"pred": 3.048860988864691,
+"dist": 10.288640746493714,
+"named": false
+},
+{
+"discharged": "Na3FePCO7",
+"charged": "Na2FePCO7",
+"ion": "Na",
+"pred": 3.155771396187427,
+"dist": 12.09456835179322,
+"named": false
+},
+{
+"discharged": "Na3MnBPO7",
+"charged": "Na2MnBPO7",
+"ion": "Na",
+"pred": 2.8279127912041706,
+"dist": 9.592237715711285,
+"named": false
+},
+{
+"discharged": "Na7Ti16O32",
+"charged": "Na3Ti8O16",
+"ion": "Na",
+"pred": 1.9331540340853348,
+"dist": 19.410722134349193,
+"named": false
+},
+{
+"discharged": "Na6Bi2B4SO16",
+"charged": "Na4Bi2B4SO16",
+"ion": "Na",
+"pred": 3.687483605543771,
+"dist": 12.370173796466547,
+"named": false
+},
+{
+"discharged": "Na5Cr2P(CO4)4",
+"charged": "Na4Cr2P(CO4)4",
+"ion": "Na",
+"pred": 2.6177184322881524,
+"dist": 12.118850649126486,
+"named": false
+},
+{
+"discharged": "Na5Ni2P(CO4)4",
+"charged": "Na4Ni2P(CO4)4",
+"ion": "Na",
+"pred": 3.8014251898113463,
+"dist": 12.495848462554196,
+"named": false
+},
+{
+"discharged": "Na7Ti11O24",
+"charged": "Na4Ti11O24",
+"ion": "Na",
+"pred": 2.080781437642671,
+"dist": 19.45795011065818,
+"named": false
+},
+{
+"discharged": "Na6Co2As(CO4)4",
+"charged": "Na5Co2As(CO4)4",
+"ion": "Na",
+"pred": 2.5798515807164595,
+"dist": 12.930272313832981,
+"named": false
+},
+{
+"discharged": "Na6Cr2As(CO4)4",
+"charged": "Na5Cr2As(CO4)4",
+"ion": "Na",
+"pred": 2.5451804867985377,
+"dist": 13.09033113262223,
+"named": false
+},
+{
+"discharged": "Na6Ni2As(CO4)4",
+"charged": "Na5Ni2As(CO4)4",
+"ion": "Na",
+"pred": 2.926581023840619,
+"dist": 12.807985159279323,
+"named": false
+},
+{
+"discharged": "Na16(WO3)19",
+"charged": "Na7(WO3)9",
+"ion": "Na",
+"pred": 1.6616807425310158,
+"dist": 21.03544928887798,
+"named": false
+},
+{
+"discharged": "Na2CuO2",
+"charged": "Na8(CuO2)5",
+"ion": "Na",
+"pred": 2.62824170326478,
+"dist": 22.275481003933997,
+"named": false
+},
+{
+"discharged": "Na3SbF6",
+"charged": "NaSbF6",
+"ion": "Na",
+"pred": 3.5580924902149516,
+"dist": 27.239032953825244,
+"named": false
+},
+{
+"discharged": "K(Nb3S4)2",
+"charged": "Nb3S4",
+"ion": "K",
+"pred": 1.766055422950433,
+"dist": 52.226606259122626,
+"named": false
+},
+{
+"discharged": "LiNbFeO4",
+"charged": "NbFeO4",
+"ion": "Li",
+"pred": 3.1530563693039415,
+"dist": 3.5109359420464967,
+"named": false
+},
+{
+"discharged": "KNbO2F",
+"charged": "NbO2F",
+"ion": "K",
+"pred": 3.18349596987866,
+"dist": 25.267720163756344,
+"named": false
+},
+{
+"discharged": "NaNbS2",
+"charged": "NbS2",
+"ion": "Na",
+"pred": 1.8229230177676892,
+"dist": 33.12825129706725,
+"named": false
+},
+{
+"discharged": "ZnNi(GeO3)2",
+"charged": "Ni(GeO3)2",
+"ion": "Zn",
+"pred": 4.477192990270821,
+"dist": 65.00400788908874,
+"named": false
+},
+{
+"discharged": "CaNi3(P2O7)2",
+"charged": "Ni3(P2O7)2",
+"ion": "Ca",
+"pred": 4.375408543532416,
+"dist": 42.502017551575186,
+"named": false
+},
+{
+"discharged": "Li5Ni6(P2O7)4",
+"charged": "Ni3(P2O7)2",
+"ion": "Li",
+"pred": 4.650013114394675,
+"dist": 1.2831043365187018,
+"named": false
+},
+{
+"discharged": "MgNi3(P2O7)2",
+"charged": "Ni3(P2O7)2",
+"ion": "Mg",
+"pred": 4.9008302498459075,
+"dist": 53.20517913929499,
+"named": false
+},
+{
+"discharged": "Li4Ni3Sn(PO4)4",
+"charged": "Ni3Sn(PO4)4",
+"ion": "Li",
+"pred": 3.56072992508568,
+"dist": 2.3979253681418067,
+"named": false
+},
+{
+"discharged": "LiNi6O7",
+"charged": "Ni6O7",
+"ion": "Li",
+"pred": 3.7816172389212523,
+"dist": 2.5159806043005486,
+"named": false
+},
+{
+"discharged": "ZnNi9O10",
+"charged": "Ni9O10",
+"ion": "Zn",
+"pred": 3.860009192743811,
+"dist": 64.57343951513383,
+"named": false
+},
+{
+"discharged": "ZnNiBiP2O9",
+"charged": "NiBiP2O9",
+"ion": "Zn",
+"pred": 4.680041808145318,
+"dist": 65.37246564653938,
+"named": false
+},
+{
+"discharged": "Ca(NiO2)4",
+"charged": "NiO2",
+"ion": "Ca",
+"pred": 4.112539276931303,
+"dist": 42.706317509903485,
+"named": false
+},
+{
+"discharged": "Li(NiO2)3",
+"charged": "NiO2",
+"ion": "Li",
+"pred": 4.225004035672707,
+"dist": 2.000252755474387,
+"named": false
+},
+{
+"discharged": "MgP2W2O9",
+"charged": "P2W2O9",
+"ion": "Mg",
+"pred": 2.912809204466964,
+"dist": 50.91062400579494,
+"named": false
+},
+{
+"discharged": "LiP4WO12",
+"charged": "P4WO12",
+"ion": "Li",
+"pred": 3.6354621187709126,
+"dist": 1.750781109022632,
+"named": false
+},
+{
+"discharged": "MgP2(WO5)2",
+"charged": "PWO5",
+"ion": "Mg",
+"pred": 2.951416723556426,
+"dist": 50.854075590019775,
+"named": false
+},
+{
+"discharged": "PrZn(BiO3)2",
+"charged": "Pr(BiO3)2",
+"ion": "Zn",
+"pred": 3.434199133113173,
+"dist": 89.57933675180357,
+"named": false
+},
+{
+"discharged": "PrTi2ZnO6",
+"charged": "PrTi2O6",
+"ion": "Zn",
+"pred": 2.1677163365951952,
+"dist": 88.4449015228371,
+"named": false
+},
+{
+"discharged": "Rb2NaCrF6",
+"charged": "Rb2CrF6",
+"ion": "Na",
+"pred": 4.405153766297148,
+"dist": 27.949651774023607,
+"named": false
+},
+{
+"discharged": "Rb2LiSbCl6",
+"charged": "Rb2SbCl6",
+"ion": "Li",
+"pred": 3.0220195918365063,
+"dist": 11.35118982440847,
+"named": false
+},
+{
+"discharged": "Rb2LiVCl6",
+"charged": "Rb2VCl6",
+"ion": "Li",
+"pred": 2.3182325018492618,
+"dist": 10.92264622876483,
+"named": false
+},
+{
+"discharged": "YRe(WO4)2",
+"charged": "Re(WO4)2",
+"ion": "Y",
+"pred": 2.481846442803231,
+"dist": 45.11769812412457,
+"named": false
+},
+{
+"discharged": "Li2Sb(PO3)5",
+"charged": "Sb(PO3)5",
+"ion": "Li",
+"pred": 4.547394944646536,
+"dist": 2.5359551830778964,
+"named": false
+},
+{
+"discharged": "K3SbN3(O3F)3",
+"charged": "SbN3(O3F)3",
+"ion": "K",
+"pred": 3.3322914879020282,
+"dist": 23.00535166698652,
+"named": false
+},
+{
+"discharged": "NaSbO3",
+"charged": "SbO3",
+"ion": "Na",
+"pred": 2.512591558251392,
+"dist": 21.45253165593538,
+"named": false
+},
+{
+"discharged": "Li2SbP(OF3)2",
+"charged": "SbP(OF3)2",
+"ion": "Li",
+"pred": 3.545940137819052,
+"dist": 10.844559618297145,
+"named": false
+},
+{
+"discharged": "LiSi6BiO14",
+"charged": "Si6BiO14",
+"ion": "Li",
+"pred": 4.270731506293953,
+"dist": 11.521252100680224,
+"named": false
+},
+{
+"discharged": "LiSn2(SO4)3",
+"charged": "Sn2(SO4)3",
+"ion": "Li",
+"pred": 3.1733772924517933,
+"dist": 2.311473598069236,
+"named": false
+},
+{
+"discharged": "NaSn4(PO4)3",
+"charged": "Sn4(PO4)3",
+"ion": "Na",
+"pred": 3.5357746241077597,
+"dist": 19.869692946895547,
+"named": false
+},
+{
+"discharged": "LiSn6P7O24",
+"charged": "Sn6P7O24",
+"ion": "Li",
+"pred": 3.883089541454156,
+"dist": 2.928119842784014,
+"named": false
+},
+{
+"discharged": "Ca2Sn",
+"charged": "Sn",
+"ion": "Ca",
+"pred": 0.29072397187961935,
+"dist": 91.59692297075166,
+"named": false
+},
+{
+"discharged": "Sr2YAlCo2O7",
+"charged": "Sr2YCo2O7",
+"ion": "Al",
+"pred": 2.361508714862615,
+"dist": 43.689178514831994,
+"named": false
+},
+{
+"discharged": "Sr2CaCu2(BiO4)2",
+"charged": "SrCuBiO4",
+"ion": "Ca",
+"pred": 2.72974445665342,
+"dist": 27.0137583249714,
+"named": false
+},
+{
+"discharged": "SrZnFe(PO4)2",
+"charged": "SrFe(PO4)2",
+"ion": "Zn",
+"pred": 3.4874693939199775,
+"dist": 43.37717062414057,
+"named": false
+},
+{
+"discharged": "SrLi4La15(CoO8)4",
+"charged": "SrLiLa15(CoO8)4",
+"ion": "Li",
+"pred": 3.6579357574116527,
+"dist": 7.168936123905079,
+"named": false
+},
+{
+"discharged": "SrCaMn(PO4)2",
+"charged": "SrMn(PO4)2",
+"ion": "Ca",
+"pred": 3.113667125162539,
+"dist": 42.66202612908587,
+"named": false
+},
+{
+"discharged": "SrVZn(PO4)2",
+"charged": "SrV(PO4)2",
+"ion": "Zn",
+"pred": 2.9950213113646784,
+"dist": 43.03987422712333,
+"named": false
+},
+{
+"discharged": "CaTi(SiO3)2",
+"charged": "Ti(SiO3)2",
+"ion": "Ca",
+"pred": 1.8811618504696872,
+"dist": 42.55141493524694,
+"named": false
+},
+{
+"discharged": "MgTi4O6",
+"charged": "Ti2O3",
+"ion": "Mg",
+"pred": 0.9707673842703259,
+"dist": 49.001046326258255,
+"named": false
+},
+{
+"discharged": "Na2Ti3Cr(PO4)6",
+"charged": "Ti3Cr(PO4)6",
+"ion": "Na",
+"pred": 3.034615768061285,
+"dist": 19.49134858270645,
+"named": false
+},
+{
+"discharged": "Li4Ti3Nb2Cr3O16",
+"charged": "Ti3Nb2Cr3O16",
+"ion": "Li",
+"pred": 2.7741597317438824,
+"dist": 2.7094085901314044,
+"named": false
+},
+{
+"discharged": "MgTi3P3O13",
+"charged": "Ti3P3O13",
+"ion": "Mg",
+"pred": 2.009292587763518,
+"dist": 49.01171723445562,
+"named": false
+},
+{
+"discharged": "LiTi3Zn2O8",
+"charged": "Ti3Zn2O8",
+"ion": "Li",
+"pred": 2.1126710860544935,
+"dist": 5.869905176661374,
+"named": false
+},
+{
+"discharged": "TiAl3",
+"charged": "TiAl",
+"ion": "Al",
+"pred": 0.4089707123561664,
+"dist": 82.82314082891898,
+"named": false
+},
+{
+"discharged": "Li4TiCo5O12",
+"charged": "TiCo5O12",
+"ion": "Li",
+"pred": 3.7604158612695446,
+"dist": 1.9944946914046775,
+"named": false
+},
+{
+"discharged": "Li4TiMn3Cr2(PO4)6",
+"charged": "TiMn3Cr2(PO4)6",
+"ion": "Li",
+"pred": 3.098224689191615,
+"dist": 2.347749038072068,
+"named": false
+},
+{
+"discharged": "Li8TiMn7(PO4)12",
+"charged": "TiMn7(PO4)12",
+"ion": "Li",
+"pred": 4.738728667458359,
+"dist": 2.1407796078522345,
+"named": false
+},
+{
+"discharged": "CaTiNiP2O9",
+"charged": "TiNiP2O9",
+"ion": "Ca",
+"pred": 3.1735020653706143,
+"dist": 42.49249625484387,
+"named": false
+},
+{
+"discharged": "MgTiNiP2O9",
+"charged": "TiNiP2O9",
+"ion": "Mg",
+"pred": 3.6264162773146063,
+"dist": 49.014046143617556,
+"named": false
+},
+{
+"discharged": "TiZnNiP2O9",
+"charged": "TiNiP2O9",
+"ion": "Zn",
+"pred": 4.18177934582029,
+"dist": 53.26909089353842,
+"named": false
+},
+{
+"discharged": "Ti3AlO6",
+"charged": "TiO2",
+"ion": "Al",
+"pred": 1.8277526214376514,
+"dist": 53.37567761281876,
+"named": false
+},
+{
+"discharged": "Li(TiS2)2",
+"charged": "TiS2",
+"ion": "Li",
+"pred": 2.083170294598083,
+"dist": 4.811821578063549,
+"named": false
+},
+{
+"discharged": "Mg(TiS2)8",
+"charged": "TiS2",
+"ion": "Mg",
+"pred": 1.765808053514115,
+"dist": 57.91001808638215,
+"named": false
+},
+{
+"discharged": "RbTiS2",
+"charged": "TiS2",
+"ion": "Rb",
+"pred": 1.495590249986506,
+"dist": 53.69504652744805,
+"named": false
+},
+{
+"discharged": "Li(TiTe2)5",
+"charged": "TiTe2",
+"ion": "Li",
+"pred": 1.2139165585131884,
+"dist": 17.259060432955255,
+"named": false
+},
+{
+"discharged": "Li2TiVO4",
+"charged": "TiVO4",
+"ion": "Li",
+"pred": 2.249337626148735,
+"dist": 2.365575192143306,
+"named": false
+},
+{
+"discharged": "TiZn3",
+"charged": "TiZn",
+"ion": "Zn",
+"pred": 0.5613920717871074,
+"dist": 106.64680814528433,
+"named": false
+},
+{
+"discharged": "Li4V3(CO3)6",
+"charged": "V(CO3)2",
+"ion": "Li",
+"pred": 3.305403513280987,
+"dist": 3.298370488031339,
+"named": false
+},
+{
+"discharged": "LiV6O15",
+"charged": "V2O5",
+"ion": "Li",
+"pred": 3.7219652075130916,
+"dist": 1.6338118862232285,
+"named": false
+},
+{
+"discharged": "NaV8O20",
+"charged": "V2O5",
+"ion": "Na",
+"pred": 3.050824059335974,
+"dist": 19.29232003896097,
+"named": false
+},
+{
+"discharged": "Li4V3Cr3(TeO8)2",
+"charged": "V3Cr3(TeO8)2",
+"ion": "Li",
+"pred": 3.31461107100998,
+"dist": 3.0544288535467623,
+"named": false
+},
+{
+"discharged": "Li2V3CuO8",
+"charged": "V3CuO8",
+"ion": "Li",
+"pred": 3.2925189320981287,
+"dist": 1.7042819258727042,
+"named": false
+},
+{
+"discharged": "Li2V3NiO8",
+"charged": "V3NiO8",
+"ion": "Li",
+"pred": 3.149540086062572,
+"dist": 1.8885035352980322,
+"named": false
+},
+{
+"discharged": "Li2V3O7",
+"charged": "V3O7",
+"ion": "Li",
+"pred": 3.2770585881491154,
+"dist": 1.0310417918472505,
+"named": false
+},
+{
+"discharged": "V3ZnO7",
+"charged": "V3O7",
+"ion": "Zn",
+"pred": 3.4657184458900137,
+"dist": 56.18695181156714,
+"named": false
+},
+{
+"discharged": "V3ZnP3O13",
+"charged": "V3P3O13",
+"ion": "Zn",
+"pred": 3.6396998185616227,
+"dist": 56.182951640198894,
+"named": false
+},
+{
+"discharged": "V4Zn(CuO4)3",
+"charged": "V4(CuO4)3",
+"ion": "Zn",
+"pred": 3.3361895417316725,
+"dist": 42.196125088327825,
+"named": false
+},
+{
+"discharged": "Li4V5(P3O11)2",
+"charged": "V5(P3O11)2",
+"ion": "Li",
+"pred": 2.5308664567956476,
+"dist": 0.9024428996177128,
+"named": false
+},
+{
+"discharged": "Li2V5O12",
+"charged": "V5O12",
+"ion": "Li",
+"pred": 3.307730600831505,
+"dist": 1.133907209430457,
+"named": false
+},
+{
+"discharged": "Li11V6O5F19",
+"charged": "V6O5F19",
+"ion": "Li",
+"pred": 3.678969455027722,
+"dist": 2.6113834244822356,
+"named": false
+},
+{
+"discharged": "Li5V6O5F19",
+"charged": "V6O5F19",
+"ion": "Li",
+"pred": 4.265546875653453,
+"dist": 1.8066417259683032,
+"named": false
+},
+{
+"discharged": "LiVCrP2(HO5)2",
+"charged": "VCrP2(HO5)2",
+"ion": "Li",
+"pred": 4.324524005211213,
+"dist": 2.5252893217710572,
+"named": false
+},
+{
+"discharged": "LiVF5",
+"charged": "VF5",
+"ion": "Li",
+"pred": 4.532254925226015,
+"dist": 2.606951384666611,
+"named": false
+},
+{
+"discharged": "LiV2O4",
+"charged": "VO2",
+"ion": "Li",
+"pred": 2.6867438719619874,
+"dist": 1.361702977972113,
+"named": false
+},
+{
+"discharged": "LiVOF3",
+"charged": "VOF3",
+"ion": "Li",
+"pred": 4.3012369524944765,
+"dist": 1.566028880700595,
+"named": false
+},
+{
+"discharged": "CaVP2O7",
+"charged": "VP2O7",
+"ion": "Ca",
+"pred": 2.5887731328305583,
+"dist": 42.446172073232624,
+"named": false
+},
+{
+"discharged": "VZnP2O7",
+"charged": "VP2O7",
+"ion": "Zn",
+"pred": 4.024809267990206,
+"dist": 56.210871219098884,
+"named": false
+},
+{
+"discharged": "NaVS2",
+"charged": "VS2",
+"ion": "Na",
+"pred": 1.9293855928665236,
+"dist": 32.681034023986335,
+"named": false
+},
+{
+"discharged": "V4ZnS8",
+"charged": "VS2",
+"ion": "Zn",
+"pred": 1.7489610706314798,
+"dist": 73.56664692535152,
+"named": false
+},
+{
+"discharged": "Y(FeO2)2",
+"charged": "Y(FeO2)3",
+"ion": "Y",
+"pred": 2.180864567946098,
+"dist": 45.25117603899942,
+"named": false
+},
+{
+"discharged": "YCrO4",
+"charged": "Y2Cr3O12",
+"ion": "Y",
+"pred": 3.1302028638892914,
+"dist": 24.846875636091834,
+"named": false
+},
+{
+"discharged": "Zr5AlSb3",
+"charged": "Zr5Sb3",
+"ion": "Al",
+"pred": 0.4876874747137973,
+"dist": 79.85674030959595,
+"named": false
+},
+{
+"discharged": "LiCoO2",
+"charged": "CoO2",
+"ion": "Li",
+"pred": 3.5037893144431003,
+"dist": 2.8227680902115546,
+"named": true
+},
+{
+"discharged": "LiFePO4",
+"charged": "FePO4",
+"ion": "Li",
+"pred": 3.501437782779921,
+"dist": 1.155571072175141,
+"named": true
+},
+{
+"discharged": "LiMn2O4",
+"charged": "Mn2O4",
+"ion": "Li",
+"pred": 3.9620757306098713,
+"dist": 0.7546851716326838,
+"named": true
+},
+{
+"discharged": "LiNiO2",
+"charged": "NiO2",
+"ion": "Li",
+"pred": 3.7907264109473875,
+"dist": 4.813733090938876,
+"named": true
+},
+{
+"discharged": "Li3V2(PO4)3",
+"charged": "V2(PO4)3",
+"ion": "Li",
+"pred": 3.3505836472138144,
+"dist": 1.8243316760623163,
+"named": true
+},
+{
+"discharged": "LiFeSO4F",
+"charged": "FeSO4F",
+"ion": "Li",
+"pred": 4.4380173731150006,
+"dist": 6.994673811907331,
+"named": true
+},
+{
+"discharged": "NaCoO2",
+"charged": "CoO2",
+"ion": "Na",
+"pred": 2.6393110900226877,
+"dist": 19.847569992128335,
+"named": true
+},
+{
+"discharged": "NaFePO4",
+"charged": "FePO4",
+"ion": "Na",
+"pred": 3.1416729102861254,
+"dist": 19.396229143548325,
+"named": true
+},
+{
+"discharged": "Na3V2(PO4)3",
+"charged": "V2(PO4)3",
+"ion": "Na",
+"pred": 2.8814373195043346,
+"dist": 19.310859043482903,
+"named": true
+},
+{
+"discharged": "NaCrO2",
+"charged": "CrO2",
+"ion": "Na",
+"pred": 2.420567607463646,
+"dist": 20.005703249555392,
+"named": true
+},
+{
+"discharged": "Li2(CoO2)3",
+"charged": "Li(CoO2)3",
+"ion": "Li",
+"pred": 3.551295013579834,
+"dist": 1.5093636393260075,
+"named": true
+},
+{
+"discharged": "KCoO2",
+"charged": "CoO2",
+"ion": "K",
+"pred": 2.782174382322503,
+"dist": 24.54197821399605,
+"named": true
+},
+{
+"discharged": "MgMn2O4",
+"charged": "Mn2O4",
+"ion": "Mg",
+"pred": 3.6308061098889217,
+"dist": 50.96351406265055,
+"named": true
+}
+]
