@@ -22,7 +22,7 @@ numpy==2.5.3
 orjson==3.13.0
 palettable==3.3.3
 pandas==2.3.3
-pillow==12.3.0
+pillow==13.0.0
 plotly==7.1.0
 pymatgen==2026.10.24
 pymatgen-core==2026.10.31
