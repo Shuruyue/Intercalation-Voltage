@@ -1,5 +1,7 @@
 # Exact versions the results were produced with (Python 3.12, Windows 11; CI installs these on Linux and Windows).
 # The optional MD/CHGNet stack: torch==2.11.0 (CUDA 12.8 wheel) and chgnet==0.4.2. The DFT stack: environment-dft.yml.
+# One later change: pillow 12.3.0 -> 13.0.0 (security update, 2026-11-21). Pillow only encodes the PNG figures;
+# all six figures drawn with either version are byte-identical, and the tests and VALIDATION.md are unchanged.
 ase==3.29.0
 bibtexparser==1.4.4
 certifi==2026.10.23
